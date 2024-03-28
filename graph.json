@@ -1,1 +1,918 @@
-{"nodes": [{"attributes": {"path": "debugger_agent/", "name": "debugger_agent", "node_id": "d78ebfb2-d5af-4885-a672-d5cdc003f45c"}, "type": "PACKAGE"}, {"type": "FILE", "attributes": {"text": "from graph_construction.graph_builder import GraphConstructor\nfrom graph_construction.db_manager import JSONManager\n\ngraph_manager = JSONManager()\ngraph_constructor = GraphConstructor(graph_manager)\ngraph_constructor.build_graph(\"debugger_agent\", \"python\")", "node_id": "124b5406-bb20-426f-a2c6-d5442559a5a8", "function_calls": ["JSONManager", "GraphConstructor", "GraphConstructor.build_graph"], "name": "run", "path": "debugger_agent.run"}, "directory": "debugger_agent/", "name": "run.py"}, {"type": "FILE", "attributes": {"path": "debugger_agent/__init__.py", "name": "__init__.py", "node_id": "4e04cb74-6da6-429a-b56c-bf37a5314ec8"}}, {"attributes": {"path": "debugger_agent/graph_construction/", "name": "graph_construction", "node_id": "0dbb9a09-a948-4174-b469-34e064b6ba77"}, "type": "PACKAGE"}, {"type": "FILE", "attributes": {"text": "from typing import Any, List\nimport json\n\nclass JSONManager():\n    # Code replaced for brevity. See node_id e70ec103-494b-4a3b-9e5e-0192d7df20ca", "node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7", "function_calls": [], "name": "db_manager", "path": "debugger_agent.graph_construction.db_manager"}, "directory": "debugger_agent/graph_construction/", "name": "db_manager.py"}, {"type": "CLASS", "attributes": {"name": "JSONManager", "signature": "class JSONManager():", "text": "class JSONManager():\n    def __init__(self, default_path: str = \"graph.json\"):\n        # Code replaced for brevity. See node_id c0ba1812-80ea-41d3-945d-d3837d7d345d\n\n    def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):\n        # Code replaced for brevity. See node_id 3bfef273-9bd0-4197-a372-3378871f3578", "node_id": "e70ec103-494b-4a3b-9e5e-0192d7df20ca", "file_node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7", "path": "debugger_agent.graph_construction.db_manager.JSONManager"}}, {"type": "FUNCTION", "attributes": {"name": "__init__", "signature": "def __init__(self, default_path: str = \"graph.json\"):", "text": "def __init__(self, default_path: str = \"graph.json\"):\n        self.default_path = default_path", "node_id": "c0ba1812-80ea-41d3-945d-d3837d7d345d", "function_calls": [], "file_node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7", "path": "debugger_agent.graph_construction.db_manager.JSONManager.__init__"}}, {"type": "FUNCTION", "attributes": {"name": "save_graph", "signature": "def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):", "text": "def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):\n        if path is None:\n            path = self.default_path\n        with open(path, \"w\") as f:\n            json.dump({\"nodes\": nodes, \"edges\": edges}, f)", "node_id": "3bfef273-9bd0-4197-a372-3378871f3578", "function_calls": ["open", "json.dump"], "file_node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7", "path": "debugger_agent.graph_construction.db_manager.JSONManager.save_graph"}}, {"type": "FILE", "attributes": {"text": "import os\nfrom pathlib import Path\nimport tree_sitter_languages\nfrom graph_construction.utils import format_nodes, tree_parser\nfrom llama_index.core import SimpleDirectoryReader\nfrom llama_index.core.schema import NodeRelationship, BaseNode\nfrom llama_index.core.text_splitter import CodeSplitter\nfrom llama_index.packs.code_hierarchy import CodeHierarchyNodeParser\n\n\nclass GraphFileParser:\n    # Code replaced for brevity. See node_id 72ff39ab-55d6-4568-bc26-793ab3f2c17c", "node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "function_calls": [], "name": "graph_file_parser", "path": "debugger_agent.graph_construction.graph_file_parser"}, "directory": "debugger_agent/graph_construction/", "name": "graph_file_parser.py"}, {"type": "CLASS", "attributes": {"name": "GraphFileParser", "signature": "class GraphFileParser:", "text": "class GraphFileParser:\n    RELATIONS_TYPES_MAP = {\n        \"function_definition\": \"FUNCTION_DEFINITION\",\n        \"class_definition\": \"CLASS_DEFINITION\",\n    }\n\n    def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):\n        # Code replaced for brevity. See node_id d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3\n\n    def parse(self):\n        # Code replaced for brevity. See node_id 46bfd4f3-2c93-40d4-bee3-4a01a22715a5\n\n    def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):\n        # Code replaced for brevity. See node_id fc874c65-eb4d-4efc-9ee7-a16385f2858d\n\n    def _get_imports(self, path: str, file_node_id: str) -> dict:\n        # Code replaced for brevity. See node_id 7ed685d7-485f-45dd-8c5d-35540633c728", "node_id": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser"}}, {"type": "FUNCTION", "attributes": {"name": "__init__", "signature": "def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):", "text": "def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):\n        self.file_path = file_path\n        self.language = language\n        self.directory_path = directory_path\n        self.visited_nodes = visited_nodes\n        self.global_imports = global_imports\n        self.root_path = root_path", "node_id": "d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3", "function_calls": [], "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser.__init__"}}, {"type": "FUNCTION", "attributes": {"name": "parse", "signature": "def parse(self):", "text": "def parse(self):\n        path = Path(self.file_path)\n        if not path.exists():\n            print(f\"File {self.file_path} does not exist.\")\n            return\n        documents = SimpleDirectoryReader(\n            input_files=[path],\n            file_metadata=lambda x: {\"filepath\": x},\n        ).load_data()\n\n        code = CodeHierarchyNodeParser(\n            language=self.language,\n            chunk_min_characters=3,\n            code_splitter=CodeSplitter(\n                language=self.language, max_chars=10000, chunk_lines=10\n            ),\n        )\n        no_extension_path = self.file_path.replace(\".py\", \"\")\n\n        split_nodes = code.get_nodes_from_documents(documents)\n        node_list = []\n        edges_list = []\n\n        file_node, file_relations = self.__process_node__(\n            split_nodes.pop(0), no_extension_path, \"\"\n        )\n        file_node[\"directory\"] = self.directory_path\n        file_node[\"name\"] = os.path.basename(self.file_path)\n        node_list.append(file_node)\n        edges_list.extend(file_relations)\n\n        for node in split_nodes:\n            processed_node, relationships = self.__process_node__(\n                node, no_extension_path, file_node[\"attributes\"][\"node_id\"]\n            )\n            node_list.append(processed_node)\n            edges_list.extend(relationships)\n\n        imports = self._get_imports(str(path), node_list[0][\"attributes\"][\"node_id\"])\n\n        return node_list, edges_list, imports", "node_id": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5", "function_calls": ["Path", "Path.exists", "print", "SimpleDirectoryReader", "SimpleDirectoryReader", "CodeHierarchyNodeParser", "CodeSplitter", "GraphFileParser.file_path.replace", "CodeHierarchyNodeParser.get_nodes_from_documents", "GraphFileParser.__process_node__", "code.get_nodes_from_documents.pop", "os.path.basename", "node_list.append", "edges_list.extend", "GraphFileParser.__process_node__", "node_list.append", "edges_list.extend", "GraphFileParser._get_imports", "str"], "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser.parse"}}, {"type": "FUNCTION", "attributes": {"name": "__process_node__", "signature": "def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):", "text": "def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):\n        relationships = []\n        asignments_dict = {}\n        scope = (\n            node.metadata[\"inclusive_scopes\"][-1]\n            if node.metadata[\"inclusive_scopes\"]\n            else None\n        )\n        type_node = \"file\"\n        if scope:\n            type_node = scope[\"type\"]\n\n        if type_node == \"function_definition\":\n            function_calls = tree_parser.get_function_calls(node, asignments_dict)\n            processed_node = format_nodes.format_function_node(\n                node, scope, function_calls, file_node_id\n            )\n        elif type_node == \"class_definition\":\n            processed_node = format_nodes.format_class_node(node, scope, file_node_id)\n        else:\n            function_calls = tree_parser.get_function_calls(node, asignments_dict)\n            processed_node = format_nodes.format_file_node(\n                node, no_extension_path, function_calls\n            )\n\n        for relation in node.relationships.items():\n            if relation[0] == NodeRelationship.CHILD:\n                for child in relation[1]:\n                    relation_type = (\n                        child.metadata[\"inclusive_scopes\"][-1][\"type\"]\n                        if child.metadata[\"inclusive_scopes\"]\n                        else \"\"\n                    )\n                    relationships.append(\n                        {\n                            \"sourceId\": node.node_id,\n                            \"targetId\": child.node_id,\n                            \"type\": self.RELATIONS_TYPES_MAP.get(\n                                relation_type, \"UNKNOWN\"\n                            ),\n                        }\n                    )\n            elif relation[0] == NodeRelationship.PARENT:\n                if relation[1]:\n                    parent_path = self.visited_nodes.get(\n                        relation[1].node_id, no_extension_path\n                    ).replace(\"/\", \".\")\n                    node_path = f\"{parent_path}.{processed_node['attributes']['name']}\"\n                else:\n                    node_path = no_extension_path.replace(\"/\", \".\")\n        processed_node[\"attributes\"][\"path\"] = node_path\n        self.global_imports[node_path] = {\n            \"id\": processed_node[\"attributes\"][\"node_id\"],\n            \"type\": processed_node[\"type\"],\n        }\n        self.visited_nodes[node.node_id] = node_path\n        return processed_node, relationships", "node_id": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "function_calls": ["tree_parser.get_function_calls", "format_nodes.format_function_node", "format_nodes.format_class_node", "tree_parser.get_function_calls", "format_nodes.format_file_node", "node.relationships.items", "relationships.append", "GraphFileParser.RELATIONS_TYPES_MAP.get", "GraphFileParser.visited_nodes.get", "GraphFileParser.visited_nodes.get", "no_extension_path.replace"], "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser.__process_node__"}}, {"type": "FUNCTION", "attributes": {"name": "_get_imports", "signature": "def _get_imports(self, path: str, file_node_id: str) -> dict:", "text": "def _get_imports(self, path: str, file_node_id: str) -> dict:\n        parser = tree_sitter_languages.get_parser(\"python\")\n        with open(path, \"r\") as file:\n            code = file.read()\n        tree = parser.parse(bytes(code, \"utf-8\"))\n\n        imports = {}\n        for node in tree.root_node.children:\n            if node.type == \"import_from_statement\":\n                import_statements = node.named_children\n\n                from_statement = import_statements[0]\n                from_text = from_statement.text.decode()\n                for import_statement in import_statements[1:]:\n                    imports[import_statement.text.decode()] = (\n                        tree_parser.resolve_import_path(from_text, path, self.root_path)\n                    )\n\n            elif node.type == \"import_statement\":\n                import_statement = node.named_children[0]\n                imports[\"global\"] = import_statement.text.decode()\n\n        return {file_node_id: imports}", "node_id": "7ed685d7-485f-45dd-8c5d-35540633c728", "function_calls": ["tree_sitter_languages.get_parser", "open", "file.read", "tree_sitter_languages.get_parser.parse", "bytes", "from_statement.text.decode", "import_statement.text.decode", "tree_parser.resolve_import_path", "import_statement.text.decode"], "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser._get_imports"}}, {"type": "FILE", "attributes": {"path": "debugger_agent/graph_construction/__init__.py", "name": "__init__.py", "node_id": "35a39434-0159-42b8-89f1-cbc605dac501"}}, {"type": "FILE", "attributes": {"text": "import os\nimport uuid\nfrom graph_construction.graph_file_parser import GraphFileParser\nfrom graph_construction.utils import format_nodes\n\n\nclass GraphConstructor:\n    # Code replaced for brevity. See node_id 166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "function_calls": [], "name": "graph_builder", "path": "debugger_agent.graph_construction.graph_builder"}, "directory": "debugger_agent/graph_construction/", "name": "graph_builder.py"}, {"type": "CLASS", "attributes": {"name": "GraphConstructor", "signature": "class GraphConstructor:", "text": "class GraphConstructor:\n    def __init__(self, graph_manager):\n        # Code replaced for brevity. See node_id a1e99a2f-a942-43f2-b584-9715e1e8bf46\n\n    def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        imports={},\n        parent_id=None,\n    ):\n        # Code replaced for brevity. See node_id 901062c0-0a60-4bfc-b729-1283debc2417\n\n    def _relate_imports(self, imports: dict):\n        # Code replaced for brevity. See node_id ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7\n\n    def _relate_function_calls(self, node_list, imports):\n        # Code replaced for brevity. See node_id 1dbcbc2c-cd87-45b4-897c-562527b0c443\n\n    def build_graph(self, path, language):\n        # process every node to create the graph structure\n        # Code replaced for brevity. See node_id ed0c614b-0ba4-420b-8970-cb3678331a15", "node_id": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor"}}, {"type": "FUNCTION", "attributes": {"name": "__init__", "signature": "def __init__(self, graph_manager):", "text": "def __init__(self, graph_manager):\n        self.graph_manager = graph_manager\n        self.directories_map = {}\n        self.visited_nodes = {}\n        self.global_imports = {}\n        self.root = None", "node_id": "a1e99a2f-a942-43f2-b584-9715e1e8bf46", "function_calls": [], "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor.__init__"}}, {"type": "FUNCTION", "attributes": {"name": "_scan_directory", "signature": "def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        imports={},\n        parent_id=None,\n    ):", "text": "def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        imports={},\n        parent_id=None,\n    ):\n        if self.root is None:\n            self.root = path\n        package = False\n        init_py_path = os.path.join(path, \"__init__.py\")\n        if os.path.exists(init_py_path):\n            package = True\n\n        directory_node = format_nodes.format_directory_node(path, package)\n        directory_path = directory_node[\"attributes\"][\"path\"]\n        directory_node_id = directory_node[\"attributes\"][\"node_id\"]\n\n        if parent_id is not None:\n            relationships.append(\n                {\n                    \"sourceId\": parent_id,\n                    \"targetId\": directory_node_id,\n                    \"type\": \"CONTAINS\",\n                }\n            )\n\n        nodes.append(directory_node)\n        for entry in os.scandir(path):\n            if entry.is_file():\n                if entry.name.endswith(\".py\") and not entry.name == (\"__init__.py\"):\n                    file_parser = GraphFileParser(\n                        entry.path,\n                        self.root,\n                        language,\n                        directory_path,\n                        visited_nodes=self.visited_nodes,\n                        global_imports=self.global_imports,\n                    )\n\n                    entry_name = entry.name.split(\".py\")[0]\n                    processed_nodes, relations, file_imports = file_parser.parse()\n                    file_root_node_id = processed_nodes[0][\"attributes\"][\"node_id\"]\n\n                    nodes.extend(processed_nodes)\n                    relationships.extend(relations)\n                    relationships.append(\n                        {\n                            \"sourceId\": directory_node_id,\n                            \"targetId\": file_root_node_id,\n                            \"type\": \"CONTAINS\",\n                        }\n                    )\n                    imports.update(file_imports)\n\n                    global_import_key = (directory_path + entry_name).replace(\"/\", \".\")\n                    self.global_imports[global_import_key] = {\n                        \"id\": file_root_node_id,\n                        \"type\": \"FILE\",\n                    }\n                else:\n                    file_node = {\n                        \"type\": \"FILE\",\n                        \"attributes\": {\n                            \"path\": entry.path,\n                            \"name\": entry.name,\n                            \"node_id\": str(uuid.uuid4()),\n                        },\n                    }\n                    nodes.append(file_node)\n                    relationships.append(\n                        {\n                            \"sourceId\": directory_node_id,\n                            \"targetId\": file_node[\"attributes\"][\"node_id\"],\n                            \"type\": \"CONTAINS\",\n                        }\n                    )\n            if entry.is_dir():\n                if entry.name == \"__pycache__\":\n                    continue\n                nodes, relationships, imports = self._scan_directory(\n                    entry.path,\n                    language,\n                    nodes,\n                    relationships,\n                    imports,\n                    directory_node_id,\n                )\n        return nodes, relationships, imports", "node_id": "901062c0-0a60-4bfc-b729-1283debc2417", "function_calls": ["os.path.join", "os.path.exists", "format_nodes.format_directory_node", "relationships.append", "nodes.append", "os.scandir", "entry.is_file", "entry.name.endswith", "GraphFileParser", "entry.name.split", "GraphFileParser.parse", "nodes.extend", "relationships.extend", "relationships.append", "imports.update", "str", "uuid.uuid4", "nodes.append", "relationships.append", "entry.is_dir", "GraphConstructor._scan_directory"], "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor._scan_directory"}}, {"type": "FUNCTION", "attributes": {"name": "_relate_imports", "signature": "def _relate_imports(self, imports: dict):", "text": "def _relate_imports(self, imports: dict):\n        import_edges = []\n        for file_node_id in imports.keys():\n            for imp in imports[file_node_id].keys():\n                for key in self.global_imports.keys():\n                    if key.endswith(imp):\n                        import_edges.append(\n                            {\n                                \"sourceId\": file_node_id,\n                                \"targetId\": self.global_imports[key][\"id\"],\n                                \"type\": \"IMPORTS\",\n                            }\n                        )\n\n        return import_edges", "node_id": "ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7", "function_calls": ["imports.keys", "GraphConstructor.global_imports.keys", "key.endswith", "import_edges.append"], "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor._relate_imports"}}, {"type": "FUNCTION", "attributes": {"name": "_relate_function_calls", "signature": "def _relate_function_calls(self, node_list, imports):", "text": "def _relate_function_calls(self, node_list, imports):\n        function_calls_relations = []\n        for node in node_list:\n            function_calls = node[\"attributes\"].get(\"function_calls\")\n            if function_calls:\n                for function_call in function_calls:\n                    if node[\"type\"] == \"FILE\":\n                        file_imports = imports[node[\"attributes\"][\"node_id\"]]\n                    else:\n                        file_imports = imports[node[\"attributes\"][\"file_node_id\"]]\n\n                    function_import = file_imports.get(function_call.split(\".\")[0])\n                    root_directory = node[\"attributes\"][\"path\"].replace(\n                        \".\" + node[\"attributes\"][\"name\"], \"\"\n                    )\n                    directory = root_directory\n                    if function_import:\n                        directory = function_import\n\n                    for module in function_call.split(\".\"):\n                        final_module = \".\" + module\n                        intermediate_module = \".\" + module + \".\"\n                        if not (\n                            final_module in directory\n                            or intermediate_module in directory\n                        ):\n                            directory += f\".{module}\"\n                    if directory in self.global_imports:\n                        target_node_type = self.global_imports[directory][\"type\"]\n                        if target_node_type == \"FUNCTION\" or target_node_type == \"FILE\":\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[directory][\"id\"],\n                                    \"type\": \"CALLS\",\n                                }\n                            )\n                        elif target_node_type == \"CLASS\":\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[directory][\"id\"],\n                                    \"type\": \"INSTANTIATES\",\n                                }\n                            )\n\n                            init_directory = directory + \".__init__\"\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[init_directory][\n                                        \"id\"\n                                    ],\n                                    \"type\": \"CALLS\",\n                                }\n                            )\n\n        return function_calls_relations", "node_id": "1dbcbc2c-cd87-45b4-897c-562527b0c443", "function_calls": ["file_imports.get", "function_call.split", "function_call.split", "function_calls_relations.append", "function_calls_relations.append", "function_calls_relations.append"], "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor._relate_function_calls"}}, {"type": "FUNCTION", "attributes": {"name": "build_graph", "signature": "def build_graph(self, path, language):\n        # process every node to create the graph structure", "text": "def build_graph(self, path, language):\n        # process every node to create the graph structure\n        nodes, relationships, imports = self._scan_directory(path, language)\n        # relate imports between file nodes\n        relationships.extend(self._relate_imports(imports))\n        # relate functions calls\n        relationships.extend(self._relate_function_calls(nodes, imports))\n\n        self.graph_manager.save_graph(nodes,relationships)", "node_id": "ed0c614b-0ba4-420b-8970-cb3678331a15", "function_calls": ["GraphConstructor._scan_directory", "relationships.extend", "GraphConstructor._relate_imports", "relationships.extend", "GraphConstructor._relate_function_calls", "GraphConstructor.graph_manager.save_graph"], "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor.build_graph"}}, {"attributes": {"path": "debugger_agent/graph_construction/utils/", "name": "utils", "node_id": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397"}, "type": "PACKAGE"}, {"type": "FILE", "attributes": {"text": "from llama_index.core.schema import BaseNode\nimport os\nimport uuid\n\n\ndef format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str\n) -> dict:\n    # Code replaced for brevity. See node_id f70c0139-1480-465e-ad54-fc382c837b92\n\n\ndef format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:\n    # Code replaced for brevity. See node_id 6ffa1466-aed7-4d24-8289-b04550146aaf\n\n\ndef format_file_node(\n    node: BaseNode, no_extension_path: str, function_calls: list[str]\n) -> dict:\n    # Code replaced for brevity. See node_id a580782a-fbe9-4987-8867-d3cbb3f58639\n\n\ndef format_directory_node(path: str, package: bool) -> dict:\n    # Code replaced for brevity. See node_id 7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76", "node_id": "b4acefa2-40c9-4893-a015-07790052b2ff", "function_calls": [], "name": "format_nodes", "path": "debugger_agent.graph_construction.utils.format_nodes"}, "directory": "debugger_agent/graph_construction/utils/", "name": "format_nodes.py"}, {"type": "FUNCTION", "attributes": {"name": "format_function_node", "signature": "def format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str\n) -> dict:", "text": "def format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str\n) -> dict:\n    name = scope[\"name\"]\n    signature = scope[\"signature\"]\n\n    processed_node = {\n        \"type\": \"FUNCTION\",\n        \"attributes\": {\n            \"name\": name,\n            \"signature\": signature,\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"function_calls\": function_calls,\n            \"file_node_id\": file_node_id,\n        },\n    }\n\n    return processed_node", "node_id": "f70c0139-1480-465e-ad54-fc382c837b92", "function_calls": [], "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff", "path": "debugger_agent.graph_construction.utils.format_nodes.format_function_node"}}, {"type": "FUNCTION", "attributes": {"name": "format_class_node", "signature": "def format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:", "text": "def format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:\n    name = scope[\"name\"]\n    signature = scope[\"signature\"]\n\n    processed_node = {\n        \"type\": \"CLASS\",\n        \"attributes\": {\n            \"name\": name,\n            \"signature\": signature,\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"file_node_id\": file_node_id,\n        },\n    }\n\n    return processed_node", "node_id": "6ffa1466-aed7-4d24-8289-b04550146aaf", "function_calls": [], "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff", "path": "debugger_agent.graph_construction.utils.format_nodes.format_class_node"}}, {"type": "FUNCTION", "attributes": {"name": "format_file_node", "signature": "def format_file_node(\n    node: BaseNode, no_extension_path: str, function_calls: list[str]\n) -> dict:", "text": "def format_file_node(\n    node: BaseNode, no_extension_path: str, function_calls: list[str]\n) -> dict:\n    processed_node = {\n        \"type\": \"FILE\",\n        \"attributes\": {\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"function_calls\": function_calls,\n            \"name\": os.path.basename(no_extension_path),\n        },\n    }\n\n    return processed_node", "node_id": "a580782a-fbe9-4987-8867-d3cbb3f58639", "function_calls": ["os.path.basename"], "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff", "path": "debugger_agent.graph_construction.utils.format_nodes.format_file_node"}}, {"type": "FUNCTION", "attributes": {"name": "format_directory_node", "signature": "def format_directory_node(path: str, package: bool) -> dict:", "text": "def format_directory_node(path: str, package: bool) -> dict:\n    processed_node = {\n        \"attributes\": {\n            \"path\": path + \"/\",\n            \"name\": os.path.basename(path),\n            \"node_id\": str(uuid.uuid4()),\n        },\n        \"type\": \"PACKAGE\" if package else \"FOLDER\",\n    }\n\n    return processed_node", "node_id": "7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76", "function_calls": ["os.path.basename", "str", "uuid.uuid4"], "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff", "path": "debugger_agent.graph_construction.utils.format_nodes.format_directory_node"}}, {"type": "FILE", "attributes": {"path": "debugger_agent/graph_construction/utils/__init__.py", "name": "__init__.py", "node_id": "7be07d4e-a4ef-493e-ae7c-98fb7fe0d91d"}}, {"type": "FILE", "attributes": {"text": "import tree_sitter_languages\nimport os\nimport re\n\n\ndef traverse_tree(tree):\n    # Code replaced for brevity. See node_id b6088360-ad13-46b1-9016-e865438ae697\n\n\ndef count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.\n    # Code replaced for brevity. See node_id 5d5ebde8-9a01-4b8d-8bdc-0c61d840812e\n\n\ndef get_function_name(call_str):\n    # Code replaced for brevity. See node_id 045c4bf4-1a5b-45f8-a5c9-6b43694643bd\n\n\ndef parse_function_call(func_call: str, inclusive_scopes) -> tuple[str, int]:\n    # Code replaced for brevity. See node_id b68d31d9-b5fb-48d2-b15b-2ba894a6e47c\n\n\ndef get_function_calls(node, assigments_dict: dict) -> list[str]:\n    # Code replaced for brevity. See node_id 8e00f9c4-362d-4f60-8aef-5bbb93e8478d\n\n\ndef is_package(directory):\n    # Code replaced for brevity. See node_id eeca7468-2aef-46ba-9b12-c2d431c82a5e\n\n\ndef find_module_path(module_name, start_dir, project_root):\n    # Code replaced for brevity. See node_id a801338e-971a-4a80-8973-7c5ede9a80a3\n\n\ndef resolve_import_path(import_statement, current_file_directory, project_root):\n    # Code replaced for brevity. See node_id edae5cd1-8374-4e15-87d0-5e15657b95ab", "node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "function_calls": [], "name": "tree_parser", "path": "debugger_agent.graph_construction.utils.tree_parser"}, "directory": "debugger_agent/graph_construction/utils/", "name": "tree_parser.py"}, {"type": "FUNCTION", "attributes": {"name": "traverse_tree", "signature": "def traverse_tree(tree):", "text": "def traverse_tree(tree):\n    cursor = tree.walk()\n    visited_children = False\n    while True:\n        if not visited_children:\n            yield cursor.node\n            if not cursor.goto_first_child():\n                visited_children = True\n        elif cursor.goto_next_sibling():\n            visited_children = False\n        elif not cursor.goto_parent():\n            break", "node_id": "b6088360-ad13-46b1-9016-e865438ae697", "function_calls": ["tree.walk", "tree.walk.goto_first_child", "tree.walk.goto_next_sibling", "tree.walk.goto_parent"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.traverse_tree"}}, {"type": "FUNCTION", "attributes": {"name": "count_parameters", "signature": "def count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.", "text": "def count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.\n    in_string = False\n    param_count = (\n        0 if not params_str else 1\n    )  # Start with 1 parameter if the string is not empty\n\n    for char in params_str:\n        if char == '\"':\n            in_string = not in_string  # Toggle state\n        elif char == \",\" and not in_string:\n            param_count += (\n                1  # Count commas outside of string literals as parameter separators\n            )\n\n    # Edge case for empty parameter list or only spaces\n    if param_count == 1 and not params_str.strip():\n        return 0\n\n    return param_count", "node_id": "5d5ebde8-9a01-4b8d-8bdc-0c61d840812e", "function_calls": ["params_str.strip"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.count_parameters"}}, {"type": "FUNCTION", "attributes": {"name": "get_function_name", "signature": "def get_function_name(call_str):", "text": "def get_function_name(call_str):\n    match = re.match(r\"([a-zA-Z_][\\w\\.]*)\\s*\\(\", call_str)\n    if match:\n        return match.group(1)  # Return the captured function name\n    else:\n        return None  # No function name found", "node_id": "045c4bf4-1a5b-45f8-a5c9-6b43694643bd", "function_calls": ["re.match", "re.match.group"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.get_function_name"}}, {"type": "FUNCTION", "attributes": {"name": "parse_function_call", "signature": "def parse_function_call(func_call: str, inclusive_scopes) -> tuple[str, int]:", "text": "def parse_function_call(func_call: str, inclusive_scopes) -> tuple[str, int]:\n    func_name = get_function_name(func_call)\n\n    if func_name:\n        if \"self.\" in func_name:\n            for parent in reversed(inclusive_scopes[:-1]):\n                if parent[\"type\"] == \"class_definition\":\n                    func_name = func_name.replace(\"self.\", parent[\"name\"] + \".\")\n                    break\n\n        return func_name\n\n    return None", "node_id": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c", "function_calls": ["get_function_name", "reversed", "func_name.replace.replace"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.parse_function_call"}}, {"type": "FUNCTION", "attributes": {"name": "get_function_calls", "signature": "def get_function_calls(node, assigments_dict: dict) -> list[str]:", "text": "def get_function_calls(node, assigments_dict: dict) -> list[str]:\n    code_text = node.text\n\n    parser = tree_sitter_languages.get_parser(\"python\")\n    tree = parser.parse(bytes(code_text, \"utf-8\"))\n    node_names = map(lambda node: node, traverse_tree(tree))\n\n    function_calls = []\n\n    for tree_node in node_names:\n        if tree_node.type == \"expression_statement\":\n            statement_children = tree_node.children\n            if statement_children[0].type == \"assignment\":\n                assigment = statement_children[0].named_children\n\n                variable_identifier = assigment[0]\n                assign_value = assigment[1]\n                if assign_value.type == \"call\":\n                    expression = assign_value\n                    expression_identifier = expression.named_children[0].text.decode()\n\n                    assigments_dict[variable_identifier.text.decode(\"utf-8\")] = (\n                        expression_identifier\n                    )\n\n        if tree_node.type == \"call\":\n            call_children = tree_node.named_children\n            if (\n                call_children[0].type == \"attribute\"\n                and call_children[1].type == \"argument_list\"\n            ):\n                attribute_children = call_children[0].named_children\n                root_caller = attribute_children[0]\n                if root_caller.type == \"identifier\":\n                    root_caller_identifier = root_caller.text.decode(\"utf-8\")\n                    if root_caller_identifier in assigments_dict:\n                        function_calls.append(\n                            assigments_dict[root_caller_identifier]\n                            + \".\"\n                            + attribute_children[1].text.decode(\"utf-8\")\n                            + \"()\"\n                        )\n                        continue\n            function_calls.append(tree_node.text.decode(\"utf-8\"))\n\n    parsed_function_calls = map(\n        lambda x: parse_function_call(x, node.metadata[\"inclusive_scopes\"]),\n        function_calls,\n    )\n\n    filtered_calls = filter(lambda x: x is not None, parsed_function_calls)\n    return list(filtered_calls)", "node_id": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d", "function_calls": ["tree_sitter_languages.get_parser", "tree_sitter_languages.get_parser.parse", "bytes", "map", "traverse_tree", "variable_identifier.text.decode", "root_caller.text.decode", "function_calls.append", "function_calls.append", "tree_node.text.decode", "map", "parse_function_call", "filter", "list"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.get_function_calls"}}, {"type": "FUNCTION", "attributes": {"name": "is_package", "signature": "def is_package(directory):", "text": "def is_package(directory):\n    return os.path.exists(os.path.join(directory, \"__init__.py\"))", "node_id": "eeca7468-2aef-46ba-9b12-c2d431c82a5e", "function_calls": ["os.path.exists", "os.path.join"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.is_package"}}, {"type": "FUNCTION", "attributes": {"name": "find_module_path", "signature": "def find_module_path(module_name, start_dir, project_root):", "text": "def find_module_path(module_name, start_dir, project_root):\n    current_dir = start_dir\n    components = module_name.split(\".\")\n\n    # Try to find the module by traversing up towards the root until the module path is found or root is reached\n    while current_dir.startswith(project_root):\n        possible_path = os.path.join(current_dir, *components)\n        # Check for a direct module or package\n        if os.path.exists(possible_path + \".py\") or is_package(possible_path):\n            return possible_path.replace(\"/\", \".\")\n        # Move one directory up\n        current_dir = os.path.dirname(current_dir)\n    return None", "node_id": "a801338e-971a-4a80-8973-7c5ede9a80a3", "function_calls": ["module_name.split", "current_dir.startswith", "os.path.join", "os.path.exists", "is_package", "os.path.join.replace", "os.path.dirname"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.find_module_path"}}, {"type": "FUNCTION", "attributes": {"name": "resolve_import_path", "signature": "def resolve_import_path(import_statement, current_file_directory, project_root):", "text": "def resolve_import_path(import_statement, current_file_directory, project_root):\n    \"\"\"\n    Resolve the absolute path of an import statement.\n    import_statement: The imported module as a string (e.g., 'os', 'my_package.my_module').\n    current_file_directory: The directory of the file containing the import statement.\n    project_root: The root directory of the project.\n    \"\"\"\n    # Handling relative imports\n    if import_statement.startswith(\".\"):\n        parent_levels = import_statement.count(\".\")\n        relative_path = import_statement[parent_levels:].replace(\".\", os.sep)\n        base_path = current_file_directory\n        for _ in range(parent_levels - 1):\n            base_path = os.path.dirname(base_path)\n        absolute_path = os.path.join(base_path, relative_path)\n        if os.path.exists(absolute_path + \".py\"):\n            return absolute_path + \".py\"\n        elif is_package(absolute_path):\n            return absolute_path\n    else:\n        # Handling absolute imports\n        return find_module_path(import_statement, current_file_directory, project_root)\n\n    # If the module wasn't found, it might be a built-in or third-party module not contained within the project\n    return None", "node_id": "edae5cd1-8374-4e15-87d0-5e15657b95ab", "function_calls": ["import_statement.startswith", "import_statement.count", "range", "os.path.dirname", "os.path.join", "os.path.exists", "is_package", "find_module_path"], "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "path": "debugger_agent.graph_construction.utils.tree_parser.resolve_import_path"}}], "edges": [{"sourceId": "d78ebfb2-d5af-4885-a672-d5cdc003f45c", "targetId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "type": "CONTAINS"}, {"sourceId": "d78ebfb2-d5af-4885-a672-d5cdc003f45c", "targetId": "4e04cb74-6da6-429a-b56c-bf37a5314ec8", "type": "CONTAINS"}, {"sourceId": "d78ebfb2-d5af-4885-a672-d5cdc003f45c", "targetId": "0dbb9a09-a948-4174-b469-34e064b6ba77", "type": "CONTAINS"}, {"sourceId": "f18635ac-9719-48a7-b220-afe410a7f6f7", "targetId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca", "type": "CLASS_DEFINITION"}, {"sourceId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca", "targetId": "c0ba1812-80ea-41d3-945d-d3837d7d345d", "type": "FUNCTION_DEFINITION"}, {"sourceId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca", "targetId": "3bfef273-9bd0-4197-a372-3378871f3578", "type": "FUNCTION_DEFINITION"}, {"sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77", "targetId": "f18635ac-9719-48a7-b220-afe410a7f6f7", "type": "CONTAINS"}, {"sourceId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "targetId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "type": "CLASS_DEFINITION"}, {"sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "targetId": "d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3", "type": "FUNCTION_DEFINITION"}, {"sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "targetId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5", "type": "FUNCTION_DEFINITION"}, {"sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "targetId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "type": "FUNCTION_DEFINITION"}, {"sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "targetId": "7ed685d7-485f-45dd-8c5d-35540633c728", "type": "FUNCTION_DEFINITION"}, {"sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77", "targetId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "type": "CONTAINS"}, {"sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77", "targetId": "35a39434-0159-42b8-89f1-cbc605dac501", "type": "CONTAINS"}, {"sourceId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "targetId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "type": "CLASS_DEFINITION"}, {"sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "targetId": "a1e99a2f-a942-43f2-b584-9715e1e8bf46", "type": "FUNCTION_DEFINITION"}, {"sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "targetId": "901062c0-0a60-4bfc-b729-1283debc2417", "type": "FUNCTION_DEFINITION"}, {"sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "targetId": "ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7", "type": "FUNCTION_DEFINITION"}, {"sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "targetId": "1dbcbc2c-cd87-45b4-897c-562527b0c443", "type": "FUNCTION_DEFINITION"}, {"sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "targetId": "ed0c614b-0ba4-420b-8970-cb3678331a15", "type": "FUNCTION_DEFINITION"}, {"sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77", "targetId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "type": "CONTAINS"}, {"sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77", "targetId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397", "type": "CONTAINS"}, {"sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff", "targetId": "f70c0139-1480-465e-ad54-fc382c837b92", "type": "FUNCTION_DEFINITION"}, {"sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff", "targetId": "6ffa1466-aed7-4d24-8289-b04550146aaf", "type": "FUNCTION_DEFINITION"}, {"sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff", "targetId": "a580782a-fbe9-4987-8867-d3cbb3f58639", "type": "FUNCTION_DEFINITION"}, {"sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff", "targetId": "7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76", "type": "FUNCTION_DEFINITION"}, {"sourceId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397", "targetId": "b4acefa2-40c9-4893-a015-07790052b2ff", "type": "CONTAINS"}, {"sourceId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397", "targetId": "7be07d4e-a4ef-493e-ae7c-98fb7fe0d91d", "type": "CONTAINS"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "b6088360-ad13-46b1-9016-e865438ae697", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "5d5ebde8-9a01-4b8d-8bdc-0c61d840812e", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "045c4bf4-1a5b-45f8-a5c9-6b43694643bd", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "eeca7468-2aef-46ba-9b12-c2d431c82a5e", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "a801338e-971a-4a80-8973-7c5ede9a80a3", "type": "FUNCTION_DEFINITION"}, {"sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "targetId": "edae5cd1-8374-4e15-87d0-5e15657b95ab", "type": "FUNCTION_DEFINITION"}, {"sourceId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397", "targetId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "type": "CONTAINS"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "type": "IMPORTS"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca", "type": "IMPORTS"}, {"sourceId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "targetId": "b4acefa2-40c9-4893-a015-07790052b2ff", "type": "IMPORTS"}, {"sourceId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d", "targetId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c", "type": "IMPORTS"}, {"sourceId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "targetId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "type": "IMPORTS"}, {"sourceId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6", "targetId": "b4acefa2-40c9-4893-a015-07790052b2ff", "type": "IMPORTS"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca", "type": "INSTANTIATES"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "c0ba1812-80ea-41d3-945d-d3837d7d345d", "type": "CALLS"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b", "type": "INSTANTIATES"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "a1e99a2f-a942-43f2-b584-9715e1e8bf46", "type": "CALLS"}, {"sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8", "targetId": "ed0c614b-0ba4-420b-8970-cb3678331a15", "type": "CALLS"}, {"sourceId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5", "targetId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "type": "CALLS"}, {"sourceId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5", "targetId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "type": "CALLS"}, {"sourceId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5", "targetId": "7ed685d7-485f-45dd-8c5d-35540633c728", "type": "CALLS"}, {"sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "targetId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d", "type": "CALLS"}, {"sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "targetId": "f70c0139-1480-465e-ad54-fc382c837b92", "type": "CALLS"}, {"sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "targetId": "6ffa1466-aed7-4d24-8289-b04550146aaf", "type": "CALLS"}, {"sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "targetId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d", "type": "CALLS"}, {"sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d", "targetId": "a580782a-fbe9-4987-8867-d3cbb3f58639", "type": "CALLS"}, {"sourceId": "7ed685d7-485f-45dd-8c5d-35540633c728", "targetId": "edae5cd1-8374-4e15-87d0-5e15657b95ab", "type": "CALLS"}, {"sourceId": "901062c0-0a60-4bfc-b729-1283debc2417", "targetId": "7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76", "type": "CALLS"}, {"sourceId": "901062c0-0a60-4bfc-b729-1283debc2417", "targetId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c", "type": "INSTANTIATES"}, {"sourceId": "901062c0-0a60-4bfc-b729-1283debc2417", "targetId": "d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3", "type": "CALLS"}, {"sourceId": "901062c0-0a60-4bfc-b729-1283debc2417", "targetId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5", "type": "CALLS"}, {"sourceId": "901062c0-0a60-4bfc-b729-1283debc2417", "targetId": "901062c0-0a60-4bfc-b729-1283debc2417", "type": "CALLS"}, {"sourceId": "ed0c614b-0ba4-420b-8970-cb3678331a15", "targetId": "901062c0-0a60-4bfc-b729-1283debc2417", "type": "CALLS"}, {"sourceId": "ed0c614b-0ba4-420b-8970-cb3678331a15", "targetId": "ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7", "type": "CALLS"}, {"sourceId": "ed0c614b-0ba4-420b-8970-cb3678331a15", "targetId": "1dbcbc2c-cd87-45b4-897c-562527b0c443", "type": "CALLS"}, {"sourceId": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c", "targetId": "045c4bf4-1a5b-45f8-a5c9-6b43694643bd", "type": "CALLS"}, {"sourceId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d", "targetId": "b6088360-ad13-46b1-9016-e865438ae697", "type": "CALLS"}, {"sourceId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d", "targetId": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c", "type": "CALLS"}, {"sourceId": "a801338e-971a-4a80-8973-7c5ede9a80a3", "targetId": "eeca7468-2aef-46ba-9b12-c2d431c82a5e", "type": "CALLS"}, {"sourceId": "edae5cd1-8374-4e15-87d0-5e15657b95ab", "targetId": "eeca7468-2aef-46ba-9b12-c2d431c82a5e", "type": "CALLS"}, {"sourceId": "edae5cd1-8374-4e15-87d0-5e15657b95ab", "targetId": "a801338e-971a-4a80-8973-7c5ede9a80a3", "type": "CALLS"}]}
+{
+  "nodes": [
+    {
+      "attributes": {
+        "path": "debugger_agent/",
+        "name": "debugger_agent",
+        "node_id": "d78ebfb2-d5af-4885-a672-d5cdc003f45c"
+      },
+      "type": "PACKAGE"
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "text": "from graph_construction.graph_builder import GraphConstructor\nfrom graph_construction.db_manager import JSONManager\n\ngraph_manager = JSONManager()\ngraph_constructor = GraphConstructor(graph_manager)\ngraph_constructor.build_graph(\"debugger_agent\", \"python\")",
+        "node_id": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+        "function_calls": [
+          "JSONManager",
+          "GraphConstructor",
+          "GraphConstructor.build_graph"
+        ],
+        "name": "run",
+        "path": "debugger_agent.run"
+      },
+      "directory": "debugger_agent/",
+      "name": "run.py"
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "path": "debugger_agent/__init__.py",
+        "name": "__init__.py",
+        "node_id": "4e04cb74-6da6-429a-b56c-bf37a5314ec8"
+      }
+    },
+    {
+      "attributes": {
+        "path": "debugger_agent/graph_construction/",
+        "name": "graph_construction",
+        "node_id": "0dbb9a09-a948-4174-b469-34e064b6ba77"
+      },
+      "type": "PACKAGE"
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "text": "from typing import Any, List\nimport json\n\nclass JSONManager():\n    # Code replaced for brevity. See node_id e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+        "node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7",
+        "function_calls": [],
+        "name": "db_manager",
+        "path": "debugger_agent.graph_construction.db_manager"
+      },
+      "directory": "debugger_agent/graph_construction/",
+      "name": "db_manager.py"
+    },
+    {
+      "type": "CLASS",
+      "attributes": {
+        "name": "JSONManager",
+        "signature": "class JSONManager():",
+        "text": "class JSONManager():\n    def __init__(self, default_path: str = \"graph.json\"):\n        # Code replaced for brevity. See node_id c0ba1812-80ea-41d3-945d-d3837d7d345d\n\n    def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):\n        # Code replaced for brevity. See node_id 3bfef273-9bd0-4197-a372-3378871f3578",
+        "node_id": "e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+        "file_node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7",
+        "path": "debugger_agent.graph_construction.db_manager.JSONManager"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "__init__",
+        "signature": "def __init__(self, default_path: str = \"graph.json\"):",
+        "text": "def __init__(self, default_path: str = \"graph.json\"):\n        self.default_path = default_path",
+        "node_id": "c0ba1812-80ea-41d3-945d-d3837d7d345d",
+        "function_calls": [],
+        "file_node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7",
+        "path": "debugger_agent.graph_construction.db_manager.JSONManager.__init__"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "save_graph",
+        "signature": "def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):",
+        "text": "def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):\n        if path is None:\n            path = self.default_path\n        with open(path, \"w\") as f:\n            json.dump({\"nodes\": nodes, \"edges\": edges}, f)",
+        "node_id": "3bfef273-9bd0-4197-a372-3378871f3578",
+        "function_calls": ["open", "json.dump"],
+        "file_node_id": "f18635ac-9719-48a7-b220-afe410a7f6f7",
+        "path": "debugger_agent.graph_construction.db_manager.JSONManager.save_graph"
+      }
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "text": "import os\nfrom pathlib import Path\nimport tree_sitter_languages\nfrom graph_construction.utils import format_nodes, tree_parser\nfrom llama_index.core import SimpleDirectoryReader\nfrom llama_index.core.schema import NodeRelationship, BaseNode\nfrom llama_index.core.text_splitter import CodeSplitter\nfrom llama_index.packs.code_hierarchy import CodeHierarchyNodeParser\n\n\nclass GraphFileParser:\n    # Code replaced for brevity. See node_id 72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+        "node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+        "function_calls": [],
+        "name": "graph_file_parser",
+        "path": "debugger_agent.graph_construction.graph_file_parser"
+      },
+      "directory": "debugger_agent/graph_construction/",
+      "name": "graph_file_parser.py"
+    },
+    {
+      "type": "CLASS",
+      "attributes": {
+        "name": "GraphFileParser",
+        "signature": "class GraphFileParser:",
+        "text": "class GraphFileParser:\n    RELATIONS_TYPES_MAP = {\n        \"function_definition\": \"FUNCTION_DEFINITION\",\n        \"class_definition\": \"CLASS_DEFINITION\",\n    }\n\n    def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):\n        # Code replaced for brevity. See node_id d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3\n\n    def parse(self):\n        # Code replaced for brevity. See node_id 46bfd4f3-2c93-40d4-bee3-4a01a22715a5\n\n    def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):\n        # Code replaced for brevity. See node_id fc874c65-eb4d-4efc-9ee7-a16385f2858d\n\n    def _get_imports(self, path: str, file_node_id: str) -> dict:\n        # Code replaced for brevity. See node_id 7ed685d7-485f-45dd-8c5d-35540633c728",
+        "node_id": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+        "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+        "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "__init__",
+        "signature": "def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):",
+        "text": "def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):\n        self.file_path = file_path\n        self.language = language\n        self.directory_path = directory_path\n        self.visited_nodes = visited_nodes\n        self.global_imports = global_imports\n        self.root_path = root_path",
+        "node_id": "d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3",
+        "function_calls": [],
+        "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+        "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser.__init__"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "parse",
+        "signature": "def parse(self):",
+        "text": "def parse(self):\n        path = Path(self.file_path)\n        if not path.exists():\n            print(f\"File {self.file_path} does not exist.\")\n            return\n        documents = SimpleDirectoryReader(\n            input_files=[path],\n            file_metadata=lambda x: {\"filepath\": x},\n        ).load_data()\n\n        code = CodeHierarchyNodeParser(\n            language=self.language,\n            chunk_min_characters=3,\n            code_splitter=CodeSplitter(\n                language=self.language, max_chars=10000, chunk_lines=10\n            ),\n        )\n        no_extension_path = self.file_path.replace(\".py\", \"\")\n\n        split_nodes = code.get_nodes_from_documents(documents)\n        node_list = []\n        edges_list = []\n\n        file_node, file_relations = self.__process_node__(\n            split_nodes.pop(0), no_extension_path, \"\"\n        )\n        file_node[\"directory\"] = self.directory_path\n        file_node[\"name\"] = os.path.basename(self.file_path)\n        node_list.append(file_node)\n        edges_list.extend(file_relations)\n\n        for node in split_nodes:\n            processed_node, relationships = self.__process_node__(\n                node, no_extension_path, file_node[\"attributes\"][\"node_id\"]\n            )\n            node_list.append(processed_node)\n            edges_list.extend(relationships)\n\n        imports = self._get_imports(str(path), node_list[0][\"attributes\"][\"node_id\"])\n\n        return node_list, edges_list, imports",
+        "node_id": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5",
+        "function_calls": [
+          "Path",
+          "Path.exists",
+          "print",
+          "SimpleDirectoryReader",
+          "SimpleDirectoryReader",
+          "CodeHierarchyNodeParser",
+          "CodeSplitter",
+          "GraphFileParser.file_path.replace",
+          "CodeHierarchyNodeParser.get_nodes_from_documents",
+          "GraphFileParser.__process_node__",
+          "code.get_nodes_from_documents.pop",
+          "os.path.basename",
+          "node_list.append",
+          "edges_list.extend",
+          "GraphFileParser.__process_node__",
+          "node_list.append",
+          "edges_list.extend",
+          "GraphFileParser._get_imports",
+          "str"
+        ],
+        "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+        "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser.parse"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "__process_node__",
+        "signature": "def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):",
+        "text": "def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):\n        relationships = []\n        asignments_dict = {}\n        scope = (\n            node.metadata[\"inclusive_scopes\"][-1]\n            if node.metadata[\"inclusive_scopes\"]\n            else None\n        )\n        type_node = \"file\"\n        if scope:\n            type_node = scope[\"type\"]\n\n        if type_node == \"function_definition\":\n            function_calls = tree_parser.get_function_calls(node, asignments_dict)\n            processed_node = format_nodes.format_function_node(\n                node, scope, function_calls, file_node_id\n            )\n        elif type_node == \"class_definition\":\n            processed_node = format_nodes.format_class_node(node, scope, file_node_id)\n        else:\n            function_calls = tree_parser.get_function_calls(node, asignments_dict)\n            processed_node = format_nodes.format_file_node(\n                node, no_extension_path, function_calls\n            )\n\n        for relation in node.relationships.items():\n            if relation[0] == NodeRelationship.CHILD:\n                for child in relation[1]:\n                    relation_type = (\n                        child.metadata[\"inclusive_scopes\"][-1][\"type\"]\n                        if child.metadata[\"inclusive_scopes\"]\n                        else \"\"\n                    )\n                    relationships.append(\n                        {\n                            \"sourceId\": node.node_id,\n                            \"targetId\": child.node_id,\n                            \"type\": self.RELATIONS_TYPES_MAP.get(\n                                relation_type, \"UNKNOWN\"\n                            ),\n                        }\n                    )\n            elif relation[0] == NodeRelationship.PARENT:\n                if relation[1]:\n                    parent_path = self.visited_nodes.get(\n                        relation[1].node_id, no_extension_path\n                    ).replace(\"/\", \".\")\n                    node_path = f\"{parent_path}.{processed_node['attributes']['name']}\"\n                else:\n                    node_path = no_extension_path.replace(\"/\", \".\")\n        processed_node[\"attributes\"][\"path\"] = node_path\n        self.global_imports[node_path] = {\n            \"id\": processed_node[\"attributes\"][\"node_id\"],\n            \"type\": processed_node[\"type\"],\n        }\n        self.visited_nodes[node.node_id] = node_path\n        return processed_node, relationships",
+        "node_id": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+        "function_calls": [
+          "tree_parser.get_function_calls",
+          "format_nodes.format_function_node",
+          "format_nodes.format_class_node",
+          "tree_parser.get_function_calls",
+          "format_nodes.format_file_node",
+          "node.relationships.items",
+          "relationships.append",
+          "GraphFileParser.RELATIONS_TYPES_MAP.get",
+          "GraphFileParser.visited_nodes.get",
+          "GraphFileParser.visited_nodes.get",
+          "no_extension_path.replace"
+        ],
+        "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+        "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser.__process_node__"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "_get_imports",
+        "signature": "def _get_imports(self, path: str, file_node_id: str) -> dict:",
+        "text": "def _get_imports(self, path: str, file_node_id: str) -> dict:\n        parser = tree_sitter_languages.get_parser(\"python\")\n        with open(path, \"r\") as file:\n            code = file.read()\n        tree = parser.parse(bytes(code, \"utf-8\"))\n\n        imports = {}\n        for node in tree.root_node.children:\n            if node.type == \"import_from_statement\":\n                import_statements = node.named_children\n\n                from_statement = import_statements[0]\n                from_text = from_statement.text.decode()\n                for import_statement in import_statements[1:]:\n                    imports[import_statement.text.decode()] = (\n                        tree_parser.resolve_import_path(from_text, path, self.root_path)\n                    )\n\n            elif node.type == \"import_statement\":\n                import_statement = node.named_children[0]\n                imports[\"global\"] = import_statement.text.decode()\n\n        return {file_node_id: imports}",
+        "node_id": "7ed685d7-485f-45dd-8c5d-35540633c728",
+        "function_calls": [
+          "tree_sitter_languages.get_parser",
+          "open",
+          "file.read",
+          "tree_sitter_languages.get_parser.parse",
+          "bytes",
+          "from_statement.text.decode",
+          "import_statement.text.decode",
+          "tree_parser.resolve_import_path",
+          "import_statement.text.decode"
+        ],
+        "file_node_id": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+        "path": "debugger_agent.graph_construction.graph_file_parser.GraphFileParser._get_imports"
+      }
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "path": "debugger_agent/graph_construction/__init__.py",
+        "name": "__init__.py",
+        "node_id": "35a39434-0159-42b8-89f1-cbc605dac501"
+      }
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "text": "import os\nimport uuid\nfrom graph_construction.graph_file_parser import GraphFileParser\nfrom graph_construction.utils import format_nodes\n\n\nclass GraphConstructor:\n    # Code replaced for brevity. See node_id 166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+        "node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "function_calls": [],
+        "name": "graph_builder",
+        "path": "debugger_agent.graph_construction.graph_builder"
+      },
+      "directory": "debugger_agent/graph_construction/",
+      "name": "graph_builder.py"
+    },
+    {
+      "type": "CLASS",
+      "attributes": {
+        "name": "GraphConstructor",
+        "signature": "class GraphConstructor:",
+        "text": "class GraphConstructor:\n    def __init__(self, graph_manager):\n        # Code replaced for brevity. See node_id a1e99a2f-a942-43f2-b584-9715e1e8bf46\n\n    def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        imports={},\n        parent_id=None,\n    ):\n        # Code replaced for brevity. See node_id 901062c0-0a60-4bfc-b729-1283debc2417\n\n    def _relate_imports(self, imports: dict):\n        # Code replaced for brevity. See node_id ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7\n\n    def _relate_function_calls(self, node_list, imports):\n        # Code replaced for brevity. See node_id 1dbcbc2c-cd87-45b4-897c-562527b0c443\n\n    def build_graph(self, path, language):\n        # process every node to create the graph structure\n        # Code replaced for brevity. See node_id ed0c614b-0ba4-420b-8970-cb3678331a15",
+        "node_id": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+        "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "__init__",
+        "signature": "def __init__(self, graph_manager):",
+        "text": "def __init__(self, graph_manager):\n        self.graph_manager = graph_manager\n        self.directories_map = {}\n        self.visited_nodes = {}\n        self.global_imports = {}\n        self.root = None",
+        "node_id": "a1e99a2f-a942-43f2-b584-9715e1e8bf46",
+        "function_calls": [],
+        "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor.__init__"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "_scan_directory",
+        "signature": "def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        imports={},\n        parent_id=None,\n    ):",
+        "text": "def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        imports={},\n        parent_id=None,\n    ):\n        if self.root is None:\n            self.root = path\n        package = False\n        init_py_path = os.path.join(path, \"__init__.py\")\n        if os.path.exists(init_py_path):\n            package = True\n\n        directory_node = format_nodes.format_directory_node(path, package)\n        directory_path = directory_node[\"attributes\"][\"path\"]\n        directory_node_id = directory_node[\"attributes\"][\"node_id\"]\n\n        if parent_id is not None:\n            relationships.append(\n                {\n                    \"sourceId\": parent_id,\n                    \"targetId\": directory_node_id,\n                    \"type\": \"CONTAINS\",\n                }\n            )\n\n        nodes.append(directory_node)\n        for entry in os.scandir(path):\n            if entry.is_file():\n                if entry.name.endswith(\".py\") and not entry.name == (\"__init__.py\"):\n                    file_parser = GraphFileParser(\n                        entry.path,\n                        self.root,\n                        language,\n                        directory_path,\n                        visited_nodes=self.visited_nodes,\n                        global_imports=self.global_imports,\n                    )\n\n                    entry_name = entry.name.split(\".py\")[0]\n                    processed_nodes, relations, file_imports = file_parser.parse()\n                    file_root_node_id = processed_nodes[0][\"attributes\"][\"node_id\"]\n\n                    nodes.extend(processed_nodes)\n                    relationships.extend(relations)\n                    relationships.append(\n                        {\n                            \"sourceId\": directory_node_id,\n                            \"targetId\": file_root_node_id,\n                            \"type\": \"CONTAINS\",\n                        }\n                    )\n                    imports.update(file_imports)\n\n                    global_import_key = (directory_path + entry_name).replace(\"/\", \".\")\n                    self.global_imports[global_import_key] = {\n                        \"id\": file_root_node_id,\n                        \"type\": \"FILE\",\n                    }\n                else:\n                    file_node = {\n                        \"type\": \"FILE\",\n                        \"attributes\": {\n                            \"path\": entry.path,\n                            \"name\": entry.name,\n                            \"node_id\": str(uuid.uuid4()),\n                        },\n                    }\n                    nodes.append(file_node)\n                    relationships.append(\n                        {\n                            \"sourceId\": directory_node_id,\n                            \"targetId\": file_node[\"attributes\"][\"node_id\"],\n                            \"type\": \"CONTAINS\",\n                        }\n                    )\n            if entry.is_dir():\n                if entry.name == \"__pycache__\":\n                    continue\n                nodes, relationships, imports = self._scan_directory(\n                    entry.path,\n                    language,\n                    nodes,\n                    relationships,\n                    imports,\n                    directory_node_id,\n                )\n        return nodes, relationships, imports",
+        "node_id": "901062c0-0a60-4bfc-b729-1283debc2417",
+        "function_calls": [
+          "os.path.join",
+          "os.path.exists",
+          "format_nodes.format_directory_node",
+          "relationships.append",
+          "nodes.append",
+          "os.scandir",
+          "entry.is_file",
+          "entry.name.endswith",
+          "GraphFileParser",
+          "entry.name.split",
+          "GraphFileParser.parse",
+          "nodes.extend",
+          "relationships.extend",
+          "relationships.append",
+          "imports.update",
+          "str",
+          "uuid.uuid4",
+          "nodes.append",
+          "relationships.append",
+          "entry.is_dir",
+          "GraphConstructor._scan_directory"
+        ],
+        "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor._scan_directory"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "_relate_imports",
+        "signature": "def _relate_imports(self, imports: dict):",
+        "text": "def _relate_imports(self, imports: dict):\n        import_edges = []\n        for file_node_id in imports.keys():\n            for imp in imports[file_node_id].keys():\n                for key in self.global_imports.keys():\n                    if key.endswith(imp):\n                        import_edges.append(\n                            {\n                                \"sourceId\": file_node_id,\n                                \"targetId\": self.global_imports[key][\"id\"],\n                                \"type\": \"IMPORTS\",\n                            }\n                        )\n\n        return import_edges",
+        "node_id": "ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7",
+        "function_calls": [
+          "imports.keys",
+          "GraphConstructor.global_imports.keys",
+          "key.endswith",
+          "import_edges.append"
+        ],
+        "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor._relate_imports"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "_relate_function_calls",
+        "signature": "def _relate_function_calls(self, node_list, imports):",
+        "text": "def _relate_function_calls(self, node_list, imports):\n        function_calls_relations = []\n        for node in node_list:\n            function_calls = node[\"attributes\"].get(\"function_calls\")\n            if function_calls:\n                for function_call in function_calls:\n                    if node[\"type\"] == \"FILE\":\n                        file_imports = imports[node[\"attributes\"][\"node_id\"]]\n                    else:\n                        file_imports = imports[node[\"attributes\"][\"file_node_id\"]]\n\n                    function_import = file_imports.get(function_call.split(\".\")[0])\n                    root_directory = node[\"attributes\"][\"path\"].replace(\n                        \".\" + node[\"attributes\"][\"name\"], \"\"\n                    )\n                    directory = root_directory\n                    if function_import:\n                        directory = function_import\n\n                    for module in function_call.split(\".\"):\n                        final_module = \".\" + module\n                        intermediate_module = \".\" + module + \".\"\n                        if not (\n                            final_module in directory\n                            or intermediate_module in directory\n                        ):\n                            directory += f\".{module}\"\n                    if directory in self.global_imports:\n                        target_node_type = self.global_imports[directory][\"type\"]\n                        if target_node_type == \"FUNCTION\" or target_node_type == \"FILE\":\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[directory][\"id\"],\n                                    \"type\": \"CALLS\",\n                                }\n                            )\n                        elif target_node_type == \"CLASS\":\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[directory][\"id\"],\n                                    \"type\": \"INSTANTIATES\",\n                                }\n                            )\n\n                            init_directory = directory + \".__init__\"\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[init_directory][\n                                        \"id\"\n                                    ],\n                                    \"type\": \"CALLS\",\n                                }\n                            )\n\n        return function_calls_relations",
+        "node_id": "1dbcbc2c-cd87-45b4-897c-562527b0c443",
+        "function_calls": [
+          "file_imports.get",
+          "function_call.split",
+          "function_call.split",
+          "function_calls_relations.append",
+          "function_calls_relations.append",
+          "function_calls_relations.append"
+        ],
+        "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor._relate_function_calls"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "build_graph",
+        "signature": "def build_graph(self, path, language):\n        # process every node to create the graph structure",
+        "text": "def build_graph(self, path, language):\n        # process every node to create the graph structure\n        nodes, relationships, imports = self._scan_directory(path, language)\n        # relate imports between file nodes\n        relationships.extend(self._relate_imports(imports))\n        # relate functions calls\n        relationships.extend(self._relate_function_calls(nodes, imports))\n\n        self.graph_manager.save_graph(nodes,relationships)",
+        "node_id": "ed0c614b-0ba4-420b-8970-cb3678331a15",
+        "function_calls": [
+          "GraphConstructor._scan_directory",
+          "relationships.extend",
+          "GraphConstructor._relate_imports",
+          "relationships.extend",
+          "GraphConstructor._relate_function_calls",
+          "GraphConstructor.graph_manager.save_graph"
+        ],
+        "file_node_id": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+        "path": "debugger_agent.graph_construction.graph_builder.GraphConstructor.build_graph"
+      }
+    },
+    {
+      "attributes": {
+        "path": "debugger_agent/graph_construction/utils/",
+        "name": "utils",
+        "node_id": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397"
+      },
+      "type": "PACKAGE"
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "text": "from llama_index.core.schema import BaseNode\nimport os\nimport uuid\n\n\ndef format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str\n) -> dict:\n    # Code replaced for brevity. See node_id f70c0139-1480-465e-ad54-fc382c837b92\n\n\ndef format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:\n    # Code replaced for brevity. See node_id 6ffa1466-aed7-4d24-8289-b04550146aaf\n\n\ndef format_file_node(\n    node: BaseNode, no_extension_path: str, function_calls: list[str]\n) -> dict:\n    # Code replaced for brevity. See node_id a580782a-fbe9-4987-8867-d3cbb3f58639\n\n\ndef format_directory_node(path: str, package: bool) -> dict:\n    # Code replaced for brevity. See node_id 7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76",
+        "node_id": "b4acefa2-40c9-4893-a015-07790052b2ff",
+        "function_calls": [],
+        "name": "format_nodes",
+        "path": "debugger_agent.graph_construction.utils.format_nodes"
+      },
+      "directory": "debugger_agent/graph_construction/utils/",
+      "name": "format_nodes.py"
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "format_function_node",
+        "signature": "def format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str\n) -> dict:",
+        "text": "def format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str\n) -> dict:\n    name = scope[\"name\"]\n    signature = scope[\"signature\"]\n\n    processed_node = {\n        \"type\": \"FUNCTION\",\n        \"attributes\": {\n            \"name\": name,\n            \"signature\": signature,\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"function_calls\": function_calls,\n            \"file_node_id\": file_node_id,\n        },\n    }\n\n    return processed_node",
+        "node_id": "f70c0139-1480-465e-ad54-fc382c837b92",
+        "function_calls": [],
+        "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff",
+        "path": "debugger_agent.graph_construction.utils.format_nodes.format_function_node"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "format_class_node",
+        "signature": "def format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:",
+        "text": "def format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:\n    name = scope[\"name\"]\n    signature = scope[\"signature\"]\n\n    processed_node = {\n        \"type\": \"CLASS\",\n        \"attributes\": {\n            \"name\": name,\n            \"signature\": signature,\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"file_node_id\": file_node_id,\n        },\n    }\n\n    return processed_node",
+        "node_id": "6ffa1466-aed7-4d24-8289-b04550146aaf",
+        "function_calls": [],
+        "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff",
+        "path": "debugger_agent.graph_construction.utils.format_nodes.format_class_node"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "format_file_node",
+        "signature": "def format_file_node(\n    node: BaseNode, no_extension_path: str, function_calls: list[str]\n) -> dict:",
+        "text": "def format_file_node(\n    node: BaseNode, no_extension_path: str, function_calls: list[str]\n) -> dict:\n    processed_node = {\n        \"type\": \"FILE\",\n        \"attributes\": {\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"function_calls\": function_calls,\n            \"name\": os.path.basename(no_extension_path),\n        },\n    }\n\n    return processed_node",
+        "node_id": "a580782a-fbe9-4987-8867-d3cbb3f58639",
+        "function_calls": ["os.path.basename"],
+        "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff",
+        "path": "debugger_agent.graph_construction.utils.format_nodes.format_file_node"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "format_directory_node",
+        "signature": "def format_directory_node(path: str, package: bool) -> dict:",
+        "text": "def format_directory_node(path: str, package: bool) -> dict:\n    processed_node = {\n        \"attributes\": {\n            \"path\": path + \"/\",\n            \"name\": os.path.basename(path),\n            \"node_id\": str(uuid.uuid4()),\n        },\n        \"type\": \"PACKAGE\" if package else \"FOLDER\",\n    }\n\n    return processed_node",
+        "node_id": "7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76",
+        "function_calls": ["os.path.basename", "str", "uuid.uuid4"],
+        "file_node_id": "b4acefa2-40c9-4893-a015-07790052b2ff",
+        "path": "debugger_agent.graph_construction.utils.format_nodes.format_directory_node"
+      }
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "path": "debugger_agent/graph_construction/utils/__init__.py",
+        "name": "__init__.py",
+        "node_id": "7be07d4e-a4ef-493e-ae7c-98fb7fe0d91d"
+      }
+    },
+    {
+      "type": "FILE",
+      "attributes": {
+        "text": "import tree_sitter_languages\nimport os\nimport re\n\n\ndef traverse_tree(tree):\n    # Code replaced for brevity. See node_id b6088360-ad13-46b1-9016-e865438ae697\n\n\ndef count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.\n    # Code replaced for brevity. See node_id 5d5ebde8-9a01-4b8d-8bdc-0c61d840812e\n\n\ndef get_function_name(call_str):\n    # Code replaced for brevity. See node_id 045c4bf4-1a5b-45f8-a5c9-6b43694643bd\n\n\ndef parse_function_call(func_call: str, inclusive_scopes) -> tuple[str, int]:\n    # Code replaced for brevity. See node_id b68d31d9-b5fb-48d2-b15b-2ba894a6e47c\n\n\ndef get_function_calls(node, assigments_dict: dict) -> list[str]:\n    # Code replaced for brevity. See node_id 8e00f9c4-362d-4f60-8aef-5bbb93e8478d\n\n\ndef is_package(directory):\n    # Code replaced for brevity. See node_id eeca7468-2aef-46ba-9b12-c2d431c82a5e\n\n\ndef find_module_path(module_name, start_dir, project_root):\n    # Code replaced for brevity. See node_id a801338e-971a-4a80-8973-7c5ede9a80a3\n\n\ndef resolve_import_path(import_statement, current_file_directory, project_root):\n    # Code replaced for brevity. See node_id edae5cd1-8374-4e15-87d0-5e15657b95ab",
+        "node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "function_calls": [],
+        "name": "tree_parser",
+        "path": "debugger_agent.graph_construction.utils.tree_parser"
+      },
+      "directory": "debugger_agent/graph_construction/utils/",
+      "name": "tree_parser.py"
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "traverse_tree",
+        "signature": "def traverse_tree(tree):",
+        "text": "def traverse_tree(tree):\n    cursor = tree.walk()\n    visited_children = False\n    while True:\n        if not visited_children:\n            yield cursor.node\n            if not cursor.goto_first_child():\n                visited_children = True\n        elif cursor.goto_next_sibling():\n            visited_children = False\n        elif not cursor.goto_parent():\n            break",
+        "node_id": "b6088360-ad13-46b1-9016-e865438ae697",
+        "function_calls": [
+          "tree.walk",
+          "tree.walk.goto_first_child",
+          "tree.walk.goto_next_sibling",
+          "tree.walk.goto_parent"
+        ],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.traverse_tree"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "count_parameters",
+        "signature": "def count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.",
+        "text": "def count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.\n    in_string = False\n    param_count = (\n        0 if not params_str else 1\n    )  # Start with 1 parameter if the string is not empty\n\n    for char in params_str:\n        if char == '\"':\n            in_string = not in_string  # Toggle state\n        elif char == \",\" and not in_string:\n            param_count += (\n                1  # Count commas outside of string literals as parameter separators\n            )\n\n    # Edge case for empty parameter list or only spaces\n    if param_count == 1 and not params_str.strip():\n        return 0\n\n    return param_count",
+        "node_id": "5d5ebde8-9a01-4b8d-8bdc-0c61d840812e",
+        "function_calls": ["params_str.strip"],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.count_parameters"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "get_function_name",
+        "signature": "def get_function_name(call_str):",
+        "text": "def get_function_name(call_str):\n    match = re.match(r\"([a-zA-Z_][\\w\\.]*)\\s*\\(\", call_str)\n    if match:\n        return match.group(1)  # Return the captured function name\n    else:\n        return None  # No function name found",
+        "node_id": "045c4bf4-1a5b-45f8-a5c9-6b43694643bd",
+        "function_calls": ["re.match", "re.match.group"],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.get_function_name"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "parse_function_call",
+        "signature": "def parse_function_call(func_call: str, inclusive_scopes) -> tuple[str, int]:",
+        "text": "def parse_function_call(func_call: str, inclusive_scopes) -> tuple[str, int]:\n    func_name = get_function_name(func_call)\n\n    if func_name:\n        if \"self.\" in func_name:\n            for parent in reversed(inclusive_scopes[:-1]):\n                if parent[\"type\"] == \"class_definition\":\n                    func_name = func_name.replace(\"self.\", parent[\"name\"] + \".\")\n                    break\n\n        return func_name\n\n    return None",
+        "node_id": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c",
+        "function_calls": [
+          "get_function_name",
+          "reversed",
+          "func_name.replace.replace"
+        ],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.parse_function_call"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "get_function_calls",
+        "signature": "def get_function_calls(node, assigments_dict: dict) -> list[str]:",
+        "text": "def get_function_calls(node, assigments_dict: dict) -> list[str]:\n    code_text = node.text\n\n    parser = tree_sitter_languages.get_parser(\"python\")\n    tree = parser.parse(bytes(code_text, \"utf-8\"))\n    node_names = map(lambda node: node, traverse_tree(tree))\n\n    function_calls = []\n\n    for tree_node in node_names:\n        if tree_node.type == \"expression_statement\":\n            statement_children = tree_node.children\n            if statement_children[0].type == \"assignment\":\n                assigment = statement_children[0].named_children\n\n                variable_identifier = assigment[0]\n                assign_value = assigment[1]\n                if assign_value.type == \"call\":\n                    expression = assign_value\n                    expression_identifier = expression.named_children[0].text.decode()\n\n                    assigments_dict[variable_identifier.text.decode(\"utf-8\")] = (\n                        expression_identifier\n                    )\n\n        if tree_node.type == \"call\":\n            call_children = tree_node.named_children\n            if (\n                call_children[0].type == \"attribute\"\n                and call_children[1].type == \"argument_list\"\n            ):\n                attribute_children = call_children[0].named_children\n                root_caller = attribute_children[0]\n                if root_caller.type == \"identifier\":\n                    root_caller_identifier = root_caller.text.decode(\"utf-8\")\n                    if root_caller_identifier in assigments_dict:\n                        function_calls.append(\n                            assigments_dict[root_caller_identifier]\n                            + \".\"\n                            + attribute_children[1].text.decode(\"utf-8\")\n                            + \"()\"\n                        )\n                        continue\n            function_calls.append(tree_node.text.decode(\"utf-8\"))\n\n    parsed_function_calls = map(\n        lambda x: parse_function_call(x, node.metadata[\"inclusive_scopes\"]),\n        function_calls,\n    )\n\n    filtered_calls = filter(lambda x: x is not None, parsed_function_calls)\n    return list(filtered_calls)",
+        "node_id": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d",
+        "function_calls": [
+          "tree_sitter_languages.get_parser",
+          "tree_sitter_languages.get_parser.parse",
+          "bytes",
+          "map",
+          "traverse_tree",
+          "variable_identifier.text.decode",
+          "root_caller.text.decode",
+          "function_calls.append",
+          "function_calls.append",
+          "tree_node.text.decode",
+          "map",
+          "parse_function_call",
+          "filter",
+          "list"
+        ],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.get_function_calls"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "is_package",
+        "signature": "def is_package(directory):",
+        "text": "def is_package(directory):\n    return os.path.exists(os.path.join(directory, \"__init__.py\"))",
+        "node_id": "eeca7468-2aef-46ba-9b12-c2d431c82a5e",
+        "function_calls": ["os.path.exists", "os.path.join"],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.is_package"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "find_module_path",
+        "signature": "def find_module_path(module_name, start_dir, project_root):",
+        "text": "def find_module_path(module_name, start_dir, project_root):\n    current_dir = start_dir\n    components = module_name.split(\".\")\n\n    # Try to find the module by traversing up towards the root until the module path is found or root is reached\n    while current_dir.startswith(project_root):\n        possible_path = os.path.join(current_dir, *components)\n        # Check for a direct module or package\n        if os.path.exists(possible_path + \".py\") or is_package(possible_path):\n            return possible_path.replace(\"/\", \".\")\n        # Move one directory up\n        current_dir = os.path.dirname(current_dir)\n    return None",
+        "node_id": "a801338e-971a-4a80-8973-7c5ede9a80a3",
+        "function_calls": [
+          "module_name.split",
+          "current_dir.startswith",
+          "os.path.join",
+          "os.path.exists",
+          "is_package",
+          "os.path.join.replace",
+          "os.path.dirname"
+        ],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.find_module_path"
+      }
+    },
+    {
+      "type": "FUNCTION",
+      "attributes": {
+        "name": "resolve_import_path",
+        "signature": "def resolve_import_path(import_statement, current_file_directory, project_root):",
+        "text": "def resolve_import_path(import_statement, current_file_directory, project_root):\n    \"\"\"\n    Resolve the absolute path of an import statement.\n    import_statement: The imported module as a string (e.g., 'os', 'my_package.my_module').\n    current_file_directory: The directory of the file containing the import statement.\n    project_root: The root directory of the project.\n    \"\"\"\n    # Handling relative imports\n    if import_statement.startswith(\".\"):\n        parent_levels = import_statement.count(\".\")\n        relative_path = import_statement[parent_levels:].replace(\".\", os.sep)\n        base_path = current_file_directory\n        for _ in range(parent_levels - 1):\n            base_path = os.path.dirname(base_path)\n        absolute_path = os.path.join(base_path, relative_path)\n        if os.path.exists(absolute_path + \".py\"):\n            return absolute_path + \".py\"\n        elif is_package(absolute_path):\n            return absolute_path\n    else:\n        # Handling absolute imports\n        return find_module_path(import_statement, current_file_directory, project_root)\n\n    # If the module wasn't found, it might be a built-in or third-party module not contained within the project\n    return None",
+        "node_id": "edae5cd1-8374-4e15-87d0-5e15657b95ab",
+        "function_calls": [
+          "import_statement.startswith",
+          "import_statement.count",
+          "range",
+          "os.path.dirname",
+          "os.path.join",
+          "os.path.exists",
+          "is_package",
+          "find_module_path"
+        ],
+        "file_node_id": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+        "path": "debugger_agent.graph_construction.utils.tree_parser.resolve_import_path"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "sourceId": "d78ebfb2-d5af-4885-a672-d5cdc003f45c",
+      "targetId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "d78ebfb2-d5af-4885-a672-d5cdc003f45c",
+      "targetId": "4e04cb74-6da6-429a-b56c-bf37a5314ec8",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "d78ebfb2-d5af-4885-a672-d5cdc003f45c",
+      "targetId": "0dbb9a09-a948-4174-b469-34e064b6ba77",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "f18635ac-9719-48a7-b220-afe410a7f6f7",
+      "targetId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+      "type": "CLASS_DEFINITION"
+    },
+    {
+      "sourceId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+      "targetId": "c0ba1812-80ea-41d3-945d-d3837d7d345d",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+      "targetId": "3bfef273-9bd0-4197-a372-3378871f3578",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77",
+      "targetId": "f18635ac-9719-48a7-b220-afe410a7f6f7",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+      "targetId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "type": "CLASS_DEFINITION"
+    },
+    {
+      "sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "targetId": "d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "targetId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "targetId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "targetId": "7ed685d7-485f-45dd-8c5d-35540633c728",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77",
+      "targetId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77",
+      "targetId": "35a39434-0159-42b8-89f1-cbc605dac501",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+      "targetId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "type": "CLASS_DEFINITION"
+    },
+    {
+      "sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "targetId": "a1e99a2f-a942-43f2-b584-9715e1e8bf46",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "targetId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "targetId": "ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "targetId": "1dbcbc2c-cd87-45b4-897c-562527b0c443",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "targetId": "ed0c614b-0ba4-420b-8970-cb3678331a15",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77",
+      "targetId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "0dbb9a09-a948-4174-b469-34e064b6ba77",
+      "targetId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "targetId": "f70c0139-1480-465e-ad54-fc382c837b92",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "targetId": "6ffa1466-aed7-4d24-8289-b04550146aaf",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "targetId": "a580782a-fbe9-4987-8867-d3cbb3f58639",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "targetId": "7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397",
+      "targetId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397",
+      "targetId": "7be07d4e-a4ef-493e-ae7c-98fb7fe0d91d",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "b6088360-ad13-46b1-9016-e865438ae697",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "5d5ebde8-9a01-4b8d-8bdc-0c61d840812e",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "045c4bf4-1a5b-45f8-a5c9-6b43694643bd",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "eeca7468-2aef-46ba-9b12-c2d431c82a5e",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "a801338e-971a-4a80-8973-7c5ede9a80a3",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "targetId": "edae5cd1-8374-4e15-87d0-5e15657b95ab",
+      "type": "FUNCTION_DEFINITION"
+    },
+    {
+      "sourceId": "5f9ae6f2-8120-4dc0-9639-2da35ab9d397",
+      "targetId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "type": "CONTAINS"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "type": "IMPORTS"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+      "type": "IMPORTS"
+    },
+    {
+      "sourceId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+      "targetId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "type": "IMPORTS"
+    },
+    {
+      "sourceId": "943b8f20-3fb7-4dc4-98c1-63677b044c8d",
+      "targetId": "ea1ff544-b255-49ca-8c7a-78cb9b3aae8c",
+      "type": "IMPORTS"
+    },
+    {
+      "sourceId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+      "targetId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "type": "IMPORTS"
+    },
+    {
+      "sourceId": "672e4648-2817-4f35-b6ce-e6e5bb7de2a6",
+      "targetId": "b4acefa2-40c9-4893-a015-07790052b2ff",
+      "type": "IMPORTS"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "e70ec103-494b-4a3b-9e5e-0192d7df20ca",
+      "type": "INSTANTIATES"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "c0ba1812-80ea-41d3-945d-d3837d7d345d",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "166f0ee7-f96e-4d1f-8ccd-6a85d2d8891b",
+      "type": "INSTANTIATES"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "a1e99a2f-a942-43f2-b584-9715e1e8bf46",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "124b5406-bb20-426f-a2c6-d5442559a5a8",
+      "targetId": "ed0c614b-0ba4-420b-8970-cb3678331a15",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5",
+      "targetId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5",
+      "targetId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5",
+      "targetId": "7ed685d7-485f-45dd-8c5d-35540633c728",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "targetId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "targetId": "f70c0139-1480-465e-ad54-fc382c837b92",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "targetId": "6ffa1466-aed7-4d24-8289-b04550146aaf",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "targetId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "fc874c65-eb4d-4efc-9ee7-a16385f2858d",
+      "targetId": "a580782a-fbe9-4987-8867-d3cbb3f58639",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "7ed685d7-485f-45dd-8c5d-35540633c728",
+      "targetId": "edae5cd1-8374-4e15-87d0-5e15657b95ab",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "targetId": "7bb5d9ec-65e0-4d3a-bb65-e2ed951e3a76",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "targetId": "72ff39ab-55d6-4568-bc26-793ab3f2c17c",
+      "type": "INSTANTIATES"
+    },
+    {
+      "sourceId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "targetId": "d4bb4d5e-a24c-4a25-b4d2-ed3729bfead3",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "targetId": "46bfd4f3-2c93-40d4-bee3-4a01a22715a5",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "targetId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "ed0c614b-0ba4-420b-8970-cb3678331a15",
+      "targetId": "901062c0-0a60-4bfc-b729-1283debc2417",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "ed0c614b-0ba4-420b-8970-cb3678331a15",
+      "targetId": "ca26f23a-9ef8-4dcb-95f6-1bdbef487cd7",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "ed0c614b-0ba4-420b-8970-cb3678331a15",
+      "targetId": "1dbcbc2c-cd87-45b4-897c-562527b0c443",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c",
+      "targetId": "045c4bf4-1a5b-45f8-a5c9-6b43694643bd",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d",
+      "targetId": "b6088360-ad13-46b1-9016-e865438ae697",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "8e00f9c4-362d-4f60-8aef-5bbb93e8478d",
+      "targetId": "b68d31d9-b5fb-48d2-b15b-2ba894a6e47c",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "a801338e-971a-4a80-8973-7c5ede9a80a3",
+      "targetId": "eeca7468-2aef-46ba-9b12-c2d431c82a5e",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "edae5cd1-8374-4e15-87d0-5e15657b95ab",
+      "targetId": "eeca7468-2aef-46ba-9b12-c2d431c82a5e",
+      "type": "CALLS"
+    },
+    {
+      "sourceId": "edae5cd1-8374-4e15-87d0-5e15657b95ab",
+      "targetId": "a801338e-971a-4a80-8973-7c5ede9a80a3",
+      "type": "CALLS"
+    }
+  ]
+}
