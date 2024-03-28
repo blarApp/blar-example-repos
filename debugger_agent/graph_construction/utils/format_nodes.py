@@ -63,7 +63,7 @@ def format_directory_node(path: str, package: bool) -> dict:
         "attributes": {
             "path": path + "/",
             "name": os.path.basename(path),
-            "node_id": str(uuid.uuid4()),
+            "node_id": str(uuid.uuid4),
         },
         "type": "PACKAGE" if package else "FOLDER",
     }
