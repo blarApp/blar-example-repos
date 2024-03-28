@@ -4,7 +4,7 @@ import uuid
 
 
 def format_function_node(
-    node: BaseNode, scope: dict, function_calls: list[str], file_node_id: str
+    node: BaseNode, scope: dict, function_calls: list[str]
 ) -> dict:
     name = scope["name"]
     signature = scope["signature"]
@@ -17,14 +17,13 @@ def format_function_node(
             "text": node.text,
             "node_id": node.node_id,
             "function_calls": function_calls,
-            "file_node_id": file_node_id,
         },
     }
 
     return processed_node
 
 
-def format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:
+def format_class_node(node: BaseNode, scope: dict) -> dict:
     name = scope["name"]
     signature = scope["signature"]
 
@@ -35,23 +34,18 @@ def format_class_node(node: BaseNode, scope: dict, file_node_id: str) -> dict:
             "signature": signature,
             "text": node.text,
             "node_id": node.node_id,
-            "file_node_id": file_node_id,
         },
     }
 
     return processed_node
 
 
-def format_file_node(
-    node: BaseNode, no_extension_path: str, function_calls: list[str]
-) -> dict:
+def format_file_node(node: BaseNode) -> dict:
     processed_node = {
-        "type": "FILE",
+        "type": "FILE_ROOT",
         "attributes": {
             "text": node.text,
             "node_id": node.node_id,
-            "function_calls": function_calls,
-            "name": os.path.basename(no_extension_path),
         },
     }
 

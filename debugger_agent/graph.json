@@ -1,0 +1,1288 @@
+{
+    "nodes": [
+        {
+            "id": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "path": "src/",
+                "name": "src",
+                "node_id": "<function uuid4 at 0x7bcd86a9ac20>",
+                "label": "PACKAGE"
+            }
+        },
+        {
+            "id": "cd978c2f-61cf-4e3a-9d5c-9d8670cb65a5",
+            "properties": {
+                "path": "src/graph.json",
+                "name": "graph.json",
+                "node_id": "cd978c2f-61cf-4e3a-9d5c-9d8670cb65a5",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "05ad3398-bbf7-46c5-90b4-ee05fa6bb8d0",
+            "properties": {
+                "text": "from graph_construction.graph_builder import GraphConstructor\nfrom graph_construction.db_manager import JSONManager\n\ngraph_manager = JSONManager()\ngraph_constructor = GraphConstructor(graph_manager)\ngraph_constructor.build_graph(\"src\", \"python\")",
+                "node_id": "05ad3398-bbf7-46c5-90b4-ee05fa6bb8d0",
+                "path": "src.run",
+                "directory": "src/",
+                "name": "run.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "29933745-3ae4-4f19-8e62-34e21ea17f6d",
+            "properties": {
+                "path": "src/__init__.py",
+                "name": "__init__.py",
+                "node_id": "29933745-3ae4-4f19-8e62-34e21ea17f6d",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "path": "src/test_documents/",
+                "name": "test_documents",
+                "node_id": "<function uuid4 at 0x7bcd86a9ac20>",
+                "label": "FOLDER"
+            }
+        },
+        {
+            "id": "ec72a10b-9d05-4176-939f-1158ef993325",
+            "properties": {
+                "text": "class Test:\n    # Code replaced for brevity. See node_id 5cdf9329-e7c5-40a6-a056-367ebe2f071a\n\n\ntest = Test()\ntest.hello()",
+                "node_id": "ec72a10b-9d05-4176-939f-1158ef993325",
+                "path": "src.test_documents.test",
+                "directory": "src/test_documents/",
+                "name": "test.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+            "properties": {
+                "name": "Test",
+                "signature": "class Test:",
+                "text": "class Test:\n    def hello(self):\n        # Code replaced for brevity. See node_id a58e9003-9a61-4f36-bc62-e82608b90c02\n\n    def factorial(self, n):\n        # Code replaced for brevity. See node_id bdafdb72-d383-4840-bbe1-81295ab141f4\n\n    def fibonacci(self, n):\n        # Code replaced for brevity. See node_id 25d24e7b-8987-40c7-a122-c542a68ca798\n\n    def hello2(self):\n        # Code replaced for brevity. See node_id cb9214d2-bb8b-4ac3-86c3-9a46945cd8f9",
+                "node_id": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+                "path": "src.test_documents.test.Test",
+                "label": "CLASS"
+            }
+        },
+        {
+            "id": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+            "properties": {
+                "name": "hello",
+                "signature": "def hello(self):",
+                "text": "def hello(self):\n        def hello2():\n                # Code replaced for brevity. See node_id 21fd40e0-3f25-462e-85d9-f30f80f87f77\n\n        hello2()\n        self.hello2()\n        a = 1\n        print(\"Hello, world!\")",
+                "node_id": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+                "path": "src.test_documents.test.Test.hello",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "21fd40e0-3f25-462e-85d9-f30f80f87f77",
+            "properties": {
+                "name": "hello2",
+                "signature": "def hello2():",
+                "text": "def hello2():\n            self.fibonacci(2)\n            print(\"Hello, world! 2\")",
+                "node_id": "21fd40e0-3f25-462e-85d9-f30f80f87f77",
+                "path": "src.test_documents.test.Test.hello.hello2",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "bdafdb72-d383-4840-bbe1-81295ab141f4",
+            "properties": {
+                "name": "factorial",
+                "signature": "def factorial(self, n):",
+                "text": "def factorial(self, n):\n        result = 1\n        for i in range(1, n + 1):\n            result *= i\n        return result",
+                "node_id": "bdafdb72-d383-4840-bbe1-81295ab141f4",
+                "path": "src.test_documents.test.Test.factorial",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "25d24e7b-8987-40c7-a122-c542a68ca798",
+            "properties": {
+                "name": "fibonacci",
+                "signature": "def fibonacci(self, n):",
+                "text": "def fibonacci(self, n):\n        a, b = 0, 1\n        while a < n:\n            print(a, end=\" \")\n            a, b = b, a + b",
+                "node_id": "25d24e7b-8987-40c7-a122-c542a68ca798",
+                "path": "src.test_documents.test.Test.fibonacci",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "cb9214d2-bb8b-4ac3-86c3-9a46945cd8f9",
+            "properties": {
+                "name": "hello2",
+                "signature": "def hello2(self):",
+                "text": "def hello2(self):\n        print(\"hc\")",
+                "node_id": "cb9214d2-bb8b-4ac3-86c3-9a46945cd8f9",
+                "path": "src.test_documents.test.Test.hello2",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "path": "src/graph_construction/",
+                "name": "graph_construction",
+                "node_id": "<function uuid4 at 0x7bcd86a9ac20>",
+                "label": "PACKAGE"
+            }
+        },
+        {
+            "id": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "path": "src/graph_construction/__pycache__/",
+                "name": "__pycache__",
+                "node_id": "<function uuid4 at 0x7bcd86a9ac20>",
+                "label": "FOLDER"
+            }
+        },
+        {
+            "id": "7c626346-5d0a-4897-9686-ae7ed0f5bce1",
+            "properties": {
+                "path": "src/graph_construction/__pycache__/graph_builder.cpython-310.pyc",
+                "name": "graph_builder.cpython-310.pyc",
+                "node_id": "7c626346-5d0a-4897-9686-ae7ed0f5bce1",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "88a42726-27de-4a4a-a8c9-1a3dec0482f3",
+            "properties": {
+                "path": "src/graph_construction/__pycache__/__init__.cpython-310.pyc",
+                "name": "__init__.cpython-310.pyc",
+                "node_id": "88a42726-27de-4a4a-a8c9-1a3dec0482f3",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "b8171d77-5880-4ff9-a380-aec269ca6887",
+            "properties": {
+                "path": "src/graph_construction/__pycache__/db_manager.cpython-310.pyc",
+                "name": "db_manager.cpython-310.pyc",
+                "node_id": "b8171d77-5880-4ff9-a380-aec269ca6887",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "b0ce54f5-984b-425c-a572-7c88899e1757",
+            "properties": {
+                "text": "import json\nimport uuid\nfrom typing import List, Any\n\nclass JSONManager:\n    # Code replaced for brevity. See node_id 545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+                "node_id": "b0ce54f5-984b-425c-a572-7c88899e1757",
+                "path": "src.graph_construction.db_manager",
+                "directory": "src/graph_construction/",
+                "name": "db_manager.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "properties": {
+                "name": "JSONManager",
+                "signature": "class JSONManager:",
+                "text": "class JSONManager:\n    def __init__(self, default_path: str = \"graph.json\"):\n        # Code replaced for brevity. See node_id 2ab489d5-e138-4665-bfa4-951a1d70f90d\n\n    def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):\n        # Code replaced for brevity. See node_id 79cc7899-2fd4-4dd1-9081-408bb317b4f2\n\n    def format_node(self, node):\n        # Code replaced for brevity. See node_id deebb8cc-a4db-4487-bd4a-887b7c945cfe\n\n    def format_edge(self, edge):\n        # Code replaced for brevity. See node_id 53f460ed-23a4-4d94-94e6-8b0883777978",
+                "node_id": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+                "path": "src.graph_construction.db_manager.JSONManager",
+                "label": "CLASS"
+            }
+        },
+        {
+            "id": "2ab489d5-e138-4665-bfa4-951a1d70f90d",
+            "properties": {
+                "name": "__init__",
+                "signature": "def __init__(self, default_path: str = \"graph.json\"):",
+                "text": "def __init__(self, default_path: str = \"graph.json\"):\n        self.default_path = default_path",
+                "node_id": "2ab489d5-e138-4665-bfa4-951a1d70f90d",
+                "function_calls": [],
+                "path": "src.graph_construction.db_manager.JSONManager.__init__",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "79cc7899-2fd4-4dd1-9081-408bb317b4f2",
+            "properties": {
+                "name": "save_graph",
+                "signature": "def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):",
+                "text": "def save_graph(self, nodes: List[Any], edges: List[Any], path: str = None):\n        if path is None:\n            path = self.default_path\n        with open(path, \"w\") as f:\n            formatted_nodes = list(map(self.format_node, nodes))\n            formatted_edges = list(map(self.format_edge, edges))\n            json.dump({\"nodes\": formatted_nodes, \"edges\": formatted_edges}, f, indent=4)",
+                "node_id": "79cc7899-2fd4-4dd1-9081-408bb317b4f2",
+                "path": "src.graph_construction.db_manager.JSONManager.save_graph",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "deebb8cc-a4db-4487-bd4a-887b7c945cfe",
+            "properties": {
+                "name": "format_node",
+                "signature": "def format_node(self, node):",
+                "text": "def format_node(self, node):\n        formatted_node = {\n            \"id\": node[\"attributes\"][\"node_id\"],\n            \"properties\": {\n                **node[\"attributes\"],\n                \"label\": node[\"type\"]\n            }\n        }\n        return formatted_node",
+                "node_id": "deebb8cc-a4db-4487-bd4a-887b7c945cfe",
+                "function_calls": [],
+                "path": "src.graph_construction.db_manager.JSONManager.format_node",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "53f460ed-23a4-4d94-94e6-8b0883777978",
+            "properties": {
+                "name": "format_edge",
+                "signature": "def format_edge(self, edge):",
+                "text": "def format_edge(self, edge):\n        formatted_edge = {\n            \"id\": str(uuid.uuid4()),\n            \"start\": edge[\"sourceId\"],\n            \"end\": edge[\"targetId\"],\n            \"properties\": {\n                \"label\": edge[\"type\"]\n            }\n        }\n        return formatted_edge",
+                "node_id": "53f460ed-23a4-4d94-94e6-8b0883777978",
+                "path": "src.graph_construction.db_manager.JSONManager.format_edge",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "8d49d1ca-8679-4ee0-b68a-b8f26060ca76",
+            "properties": {
+                "text": "import os\nfrom pathlib import Path\nimport tree_sitter_languages\nfrom ..utils import format_nodes, tree_parser\nfrom llama_index.core import SimpleDirectoryReader\nfrom llama_index.core.schema import NodeRelationship, BaseNode\nfrom llama_index.core.text_splitter import CodeSplitter\nfrom llama_index.packs.code_hierarchy import CodeHierarchyNodeParser\n\n\nclass GraphFileParser:\n    # Code replaced for brevity. See node_id 0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+                "node_id": "8d49d1ca-8679-4ee0-b68a-b8f26060ca76",
+                "path": "src.graph_construction.graph_file_parser",
+                "directory": "src/graph_construction/",
+                "name": "graph_file_parser.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+            "properties": {
+                "name": "GraphFileParser",
+                "signature": "class GraphFileParser:",
+                "text": "class GraphFileParser:\n    RELATIONS_TYPES_MAP = {\n        \"function_definition\": \"FUNCTION_DEFINITION\",\n        \"class_definition\": \"CLASS_DEFINITION\",\n    }\n\n    def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):\n        # Code replaced for brevity. See node_id d7581add-3d25-4a2d-beb0-bd28b6e107ac\n\n    def parse(self):\n        # Code replaced for brevity. See node_id 51d6ec41-2ad2-4e4a-b845-80b59b78840f\n\n    def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):\n        # Code replaced for brevity. See node_id 8707e696-1a3c-4c89-8e98-6058b247aa7a\n\n    def _get_imports(self, path: str, file_node_id: str) -> dict:\n        # Code replaced for brevity. See node_id 35ee17d1-1777-450d-a3f3-3be5f7e78f01",
+                "node_id": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+                "path": "src.graph_construction.graph_file_parser.GraphFileParser",
+                "label": "CLASS"
+            }
+        },
+        {
+            "id": "d7581add-3d25-4a2d-beb0-bd28b6e107ac",
+            "properties": {
+                "name": "__init__",
+                "signature": "def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):",
+                "text": "def __init__(\n        self,\n        file_path: str,\n        root_path: str,\n        language: str,\n        directory_path: str,\n        visited_nodes: dict,\n        global_imports: dict,\n    ):\n        self.file_path = file_path\n        self.language = language\n        self.directory_path = directory_path\n        self.visited_nodes = visited_nodes\n        self.global_imports = global_imports\n        self.root_path = root_path",
+                "node_id": "d7581add-3d25-4a2d-beb0-bd28b6e107ac",
+                "function_calls": [],
+                "path": "src.graph_construction.graph_file_parser.GraphFileParser.__init__",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "51d6ec41-2ad2-4e4a-b845-80b59b78840f",
+            "properties": {
+                "name": "parse",
+                "signature": "def parse(self):",
+                "text": "def parse(self):\n        path = Path(self.file_path)\n        if not path.exists():\n            print(f\"File {self.file_path} does not exist.\")\n            return\n        documents = SimpleDirectoryReader(\n            input_files=[path],\n            file_metadata=lambda x: {\"filepath\": x},\n        ).load_data()\n\n        code = CodeHierarchyNodeParser(\n            language=self.language,\n            chunk_min_characters=3,\n            code_splitter=CodeSplitter(\n                language=self.language, max_chars=10000, chunk_lines=10\n            ),\n        )\n        no_extension_path = self.file_path.replace(\".py\", \"\")\n\n        split_nodes = code.get_nodes_from_documents(documents)\n        node_list = []\n        edges_list = []\n\n        file_node, file_relations = self.__process_node__(\n            split_nodes.pop(0), no_extension_path, \"\"\n        )\n        file_node[\"directory\"] = self.directory_path\n        file_node[\"name\"] = os.path.basename(self.file_path)\n        node_list.append(file_node)\n        edges_list.extend(file_relations)\n\n        for node in split_nodes:\n            processed_node, relationships = self.__process_node__(\n                node, no_extension_path, file_node[\"attributes\"][\"node_id\"]\n            )\n            node_list.append(processed_node)\n            edges_list.extend(relationships)\n\n        imports = self._get_imports(str(path), node_list[0][\"attributes\"][\"node_id\"])\n\n        return node_list, edges_list, imports",
+                "node_id": "51d6ec41-2ad2-4e4a-b845-80b59b78840f",
+                "path": "src.graph_construction.graph_file_parser.GraphFileParser.parse",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "properties": {
+                "name": "__process_node__",
+                "signature": "def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):",
+                "text": "def __process_node__(\n        self, node: BaseNode, no_extension_path: str, file_node_id: str\n    ):\n        relationships = []\n        asignments_dict = {}\n        scope = (\n            node.metadata[\"inclusive_scopes\"][-1]\n            if node.metadata[\"inclusive_scopes\"]\n            else None\n        )\n        type_node = \"file\"\n        if scope:\n            type_node = scope[\"type\"]\n\n        if type_node == \"function_definition\":\n            function_calls = tree_parser.get_function_calls(node, asignments_dict)\n            processed_node = format_nodes.format_function_node(\n                node, scope, function_calls, file_node_id\n            )\n        elif type_node == \"class_definition\":\n            processed_node = format_nodes.format_class_node(node, scope, file_node_id)\n        else:\n            function_calls = tree_parser.get_function_calls(node, asignments_dict)\n            processed_node = format_nodes.format_file_node(\n                node, no_extension_path, function_calls\n            )\n\n        for relation in node.relationships.items():\n            if relation[0] == NodeRelationship.CHILD:\n                for child in relation[1]:\n                    relation_type = (\n                        child.metadata[\"inclusive_scopes\"][-1][\"type\"]\n                        if child.metadata[\"inclusive_scopes\"]\n                        else \"\"\n                    )\n                    relationships.append(\n                        {\n                            \"sourceId\": node.node_id,\n                            \"targetId\": child.node_id,\n                            \"type\": self.RELATIONS_TYPES_MAP.get(\n                                relation_type, \"UNKNOWN\"\n                            ),\n                        }\n                    )\n            elif relation[0] == NodeRelationship.PARENT:\n                if relation[1]:\n                    parent_path = self.visited_nodes.get(\n                        relation[1].node_id, no_extension_path\n                    ).replace(\"/\", \".\")\n                    node_path = f\"{parent_path}.{processed_node['attributes']['name']}\"\n                else:\n                    node_path = no_extension_path.replace(\"/\", \".\")\n        processed_node[\"attributes\"][\"path\"] = node_path\n        self.global_imports[node_path] = {\n            \"id\": processed_node[\"attributes\"][\"node_id\"],\n            \"type\": processed_node[\"type\"],\n        }\n        self.visited_nodes[node.node_id] = node_path\n        return processed_node, relationships",
+                "node_id": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+                "path": "src.graph_construction.graph_file_parser.GraphFileParser.__process_node__",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "35ee17d1-1777-450d-a3f3-3be5f7e78f01",
+            "properties": {
+                "name": "_get_imports",
+                "signature": "def _get_imports(self, path: str, file_node_id: str) -> dict:",
+                "text": "def _get_imports(self, path: str, file_node_id: str) -> dict:\n        parser = tree_sitter_languages.get_parser(\"python\")\n        with open(path, \"r\") as file:\n            code = file.read()\n        tree = parser.parse(bytes(code, \"utf-8\"))\n\n        imports = {}\n        for node in tree.root_node.children:\n            if node.type == \"import_from_statement\":\n                import_statements = node.named_children\n\n                from_statement = import_statements[0]\n                from_text = from_statement.text.decode()\n                for import_statement in import_statements[1:]:\n                    imports[import_statement.text.decode()] = (\n                        tree_parser.resolve_import_path(from_text, path, self.root_path)\n                    )\n\n            elif node.type == \"import_statement\":\n                import_statement = node.named_children[0]\n                imports[\"global\"] = import_statement.text.decode()\n\n        return {file_node_id: imports}",
+                "node_id": "35ee17d1-1777-450d-a3f3-3be5f7e78f01",
+                "path": "src.graph_construction.graph_file_parser.GraphFileParser._get_imports",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "798bb122-dfa5-4966-9188-fcd8bd44e66a",
+            "properties": {
+                "path": "src/graph_construction/__init__.py",
+                "name": "__init__.py",
+                "node_id": "798bb122-dfa5-4966-9188-fcd8bd44e66a",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "310c1f00-6251-43fc-8313-53716473b67d",
+            "properties": {
+                "text": "import os\nimport uuid\nfrom pathlib import Path\nimport tree_sitter_languages\nfrom llama_index.core import SimpleDirectoryReader\nfrom llama_index.core.schema import NodeRelationship, BaseNode\nfrom llama_index.core.text_splitter import CodeSplitter\nfrom llama_index.packs.code_hierarchy import CodeHierarchyNodeParser\nfrom utils import format_nodes, tree_parser\n\nclass GraphConstructor:\n    # Code replaced for brevity. See node_id 7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+                "node_id": "310c1f00-6251-43fc-8313-53716473b67d",
+                "path": "src.graph_construction.graph_builder",
+                "directory": "src/graph_construction/",
+                "name": "graph_builder.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "properties": {
+                "name": "GraphConstructor",
+                "signature": "class GraphConstructor:",
+                "text": "class GraphConstructor:\n    RELATIONS_TYPES_MAP = {\n        \"function_definition\": \"FUNCTION_DEFINITION\",\n        \"class_definition\": \"CLASS_DEFINITION\",\n    }\n\n    def __init__(self, graph_manager):\n        # Code replaced for brevity. See node_id 9be2457e-33cc-4516-a457-64284b5da8f6\n\n    def _process_file(self, file_path, language, directory_path):\n        # Code replaced for brevity. See node_id 51a6ffbc-f597-4b3b-8b7b-28388832a2e7\n\n    def __process_node__(self, node: BaseNode, no_extension_path: str):\n        # Code replaced for brevity. See node_id 8f9fc127-2745-4eef-9247-77d0f3c12d74\n\n    def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        parent_id=None,\n    ):\n        # Code replaced for brevity. See node_id dfc4867d-9a69-4d81-af88-263767ee88a7\n\n    def _relate_imports(self, node_list):\n        # Code replaced for brevity. See node_id 32918536-732d-42ab-8d75-63da0ed65542\n\n\n    def _get_imports(self, path):\n        # Code replaced for brevity. See node_id 25c86f90-33d9-4eb5-84f7-b400a9f6c908\n\n    def _relate_function_calls(self, node_list):\n        # Code replaced for brevity. See node_id b953bee7-d80c-403d-a48b-c0f866ead4f2\n\n    def build_graph(self, path, language):\n\n        # process every node to create the graph structure\n        # Code replaced for brevity. See node_id 2e9a955a-893f-4f95-97bc-47e2cf884506",
+                "node_id": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+                "path": "src.graph_construction.graph_builder.GraphConstructor",
+                "label": "CLASS"
+            }
+        },
+        {
+            "id": "9be2457e-33cc-4516-a457-64284b5da8f6",
+            "properties": {
+                "name": "__init__",
+                "signature": "def __init__(self, graph_manager):",
+                "text": "def __init__(self, graph_manager):\n        self.graph_manager = graph_manager\n        self.directories_map = {}\n        self.visited_nodes = {}\n        self.global_imports = {}\n        self.root = None",
+                "node_id": "9be2457e-33cc-4516-a457-64284b5da8f6",
+                "function_calls": [],
+                "path": "src.graph_construction.graph_builder.GraphConstructor.__init__",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "51a6ffbc-f597-4b3b-8b7b-28388832a2e7",
+            "properties": {
+                "name": "_process_file",
+                "signature": "def _process_file(self, file_path, language, directory_path):",
+                "text": "def _process_file(self, file_path, language, directory_path):\n        path = Path(file_path)\n        if not path.exists():\n            print(f\"File {file_path} does not exist.\")\n            return\n        documents = SimpleDirectoryReader(\n            input_files=[path],\n            file_metadata=lambda x: {\"filepath\": x},\n        ).load_data()\n\n        code = CodeHierarchyNodeParser(\n            language=language,\n            chunk_min_characters=3,\n            code_splitter=CodeSplitter(\n                language=language, max_chars=10000, chunk_lines=10\n            ),\n        )\n        no_extension_path = file_path.replace(\".py\", \"\")\n\n        split_nodes = code.get_nodes_from_documents(documents)\n        node_list = []\n        edges_list = []\n        for node in split_nodes:\n            processed_node, relationships = self.__process_node__(node, no_extension_path)\n            node_list.append(processed_node)\n            edges_list.extend(relationships)\n        imports, _ = self._get_imports(path)\n\n        node_list[0][\"attributes\"][\"directory\"] = directory_path\n        node_list[0][\"imports\"] = imports\n        node_list[0][\"attributes\"][\"name\"] = os.path.basename(file_path)\n\n        return node_list, edges_list",
+                "node_id": "51a6ffbc-f597-4b3b-8b7b-28388832a2e7",
+                "path": "src.graph_construction.graph_builder.GraphConstructor._process_file",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "properties": {
+                "name": "__process_node__",
+                "signature": "def __process_node__(self, node: BaseNode, no_extension_path: str):",
+                "text": "def __process_node__(self, node: BaseNode, no_extension_path: str):\n        relationships = []\n        scope = (\n            node.metadata[\"inclusive_scopes\"][-1]\n            if node.metadata[\"inclusive_scopes\"]\n            else None\n        )\n        type_node = \"file\"\n        if scope:\n            type_node = scope[\"type\"]\n\n        if type_node == \"function_definition\":\n            function_calls = tree_parser.get_function_calls(node)\n            processed_node = format_nodes.format_function_node(\n                node, scope, function_calls\n            )\n        elif type_node == \"class_definition\":\n            processed_node = format_nodes.format_class_node(node, scope)\n        else:\n            processed_node = format_nodes.format_file_node(node)\n\n        for relation in node.relationships.items():\n            if relation[0] == NodeRelationship.CHILD:\n                for child in relation[1]:\n                    relation_type = (\n                        child.metadata[\"inclusive_scopes\"][-1][\"type\"]\n                        if child.metadata[\"inclusive_scopes\"]\n                        else \"\"\n                    )\n                    relationships.append(\n                        {\n                            \"sourceId\": node.node_id,\n                            \"targetId\": child.node_id,\n                            \"type\": self.RELATIONS_TYPES_MAP.get(\n                                relation_type, \"UNKNOWN\"\n                            ),\n                        }\n                    )\n            elif relation[0] == NodeRelationship.PARENT:\n                if relation[1]:\n                    parent_path = self.visited_nodes.get(relation[1].node_id, no_extension_path).replace(\"/\", \".\")\n                    node_path = f\"{parent_path}.{processed_node['attributes']['name']}\"\n                else:\n                    node_path = no_extension_path.replace(\"/\", \".\")\n        processed_node['attributes'][\"path\"] = node_path\n        self.global_imports[node_path] = node.node_id\n        self.visited_nodes[node.node_id] = node_path\n        return processed_node, relationships",
+                "node_id": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+                "path": "src.graph_construction.graph_builder.GraphConstructor.__process_node__",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "properties": {
+                "name": "_scan_directory",
+                "signature": "def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        parent_id=None,\n    ):",
+                "text": "def _scan_directory(\n        self,\n        path,\n        language=\"python\",\n        nodes=[],\n        relationships=[],\n        parent_id=None,\n    ):\n        if self.root is None:\n            self.root = path\n        package = False\n        init_py_path = os.path.join(path, \"__init__.py\")\n        if os.path.exists(init_py_path):\n            package = True\n\n        directory_node = format_nodes.format_directory_node(path, package)\n        directory_path = directory_node[\"attributes\"][\"path\"]\n        directory_node_id = directory_node[\"attributes\"][\"node_id\"]\n\n        if parent_id is not None:\n            relationships.append(\n                {\n                    \"sourceId\": parent_id,\n                    \"targetId\": directory_node_id,\n                    \"type\": \"contains\",\n                }\n            )\n\n        nodes.append(directory_node)\n        for entry in os.scandir(path):\n            if entry.is_file():\n                if entry.name.endswith(\".py\") and not entry.name == (\"__init__.py\"):\n                    entry_name = entry.name.split(\".py\")[0]\n                    processed_nodes, relations = self._process_file(\n                        entry.path, language, directory_node[\"attributes\"][\"path\"]\n                    )\n                    file_root_node_id = processed_nodes[0][\"attributes\"][\"node_id\"]\n\n                    nodes.extend(processed_nodes)\n                    relationships.extend(relations)\n                    relationships.append(\n                        {\n                            \"sourceId\": directory_node_id,\n                            \"targetId\": file_root_node_id,\n                            \"type\": \"contains\",\n                        }\n                    )\n                    global_import_key = (directory_path + entry_name).replace(\"/\", \".\")\n                    self.global_imports[global_import_key] = file_root_node_id\n                else:\n                    file_node = {\n                        \"type\": \"FILE\",\n                        \"attributes\": {\n                            \"path\": entry.path,\n                            \"name\": entry.name,\n                            \"node_id\": str(uuid.uuid4()),\n                        },\n                    }\n                    nodes.append(file_node)\n                    relationships.append(\n                        {\n                            \"sourceId\": directory_node_id,\n                            \"targetId\": file_node[\"attributes\"][\"node_id\"],\n                            \"type\": \"CONTAINS\",\n                        }\n                    )\n            if entry.is_dir():\n                nodes, relationships = self._scan_directory(\n                    entry.path,\n                    language,\n                    nodes,\n                    relationships,\n                    directory_node_id,\n                )\n        return nodes, relationships",
+                "node_id": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+                "path": "src.graph_construction.graph_builder.GraphConstructor._scan_directory",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "32918536-732d-42ab-8d75-63da0ed65542",
+            "properties": {
+                "name": "_relate_imports",
+                "signature": "def _relate_imports(self, node_list):",
+                "text": "def _relate_imports(self, node_list):\n        import_edges = []\n        for node in node_list:\n            if node.get(\"imports\") is not None:\n                for imp in node[\"imports\"]:\n                    for key in self.global_imports.keys():\n                        if key.endswith(imp):\n                            import_edges.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[key],\n                                    \"type\": \"IMPORTS\",\n                                }\n                            )\n                            print(\"added edge\", key)\n                del node[\"imports\"]\n\n        return import_edges",
+                "node_id": "32918536-732d-42ab-8d75-63da0ed65542",
+                "path": "src.graph_construction.graph_builder.GraphConstructor._relate_imports",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "25c86f90-33d9-4eb5-84f7-b400a9f6c908",
+            "properties": {
+                "name": "_get_imports",
+                "signature": "def _get_imports(self, path):",
+                "text": "def _get_imports(self, path):\n        parser = tree_sitter_languages.get_parser(\"python\")\n        with open(path, \"r\") as file:\n            code = file.read()\n        tree = parser.parse(bytes(code, \"utf-8\"))\n\n        imports = set()\n        relative_imports = set()\n        for node in tree.root_node.children:\n            if node.type == \"import_from_statement\":\n                from_import = \"\"\n                for child in node.children:\n                    if not from_import:\n                        if child.type == \"dotted_name\":\n                            from_import = child.text.decode()\n                        elif child.type == \"relative_import\":\n                            relative_imports.add(child.text.decode())\n                            from_import = child.text.decode()\n\n                    else:\n                        if child.type == \"dotted_name\":\n                            imports.add(f\"{from_import}.{child.text.decode()}\")\n\n            elif node.type == \"import_statement\":\n                for child in node.children:\n                    if child.type == \"dotted_name\":\n                        imports.add(child.text.decode())\n        return imports, relative_imports",
+                "node_id": "25c86f90-33d9-4eb5-84f7-b400a9f6c908",
+                "path": "src.graph_construction.graph_builder.GraphConstructor._get_imports",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "b953bee7-d80c-403d-a48b-c0f866ead4f2",
+            "properties": {
+                "name": "_relate_function_calls",
+                "signature": "def _relate_function_calls(self, node_list):",
+                "text": "def _relate_function_calls(self, node_list):\n        function_calls_relations = []\n        for node in node_list:\n            function_calls = node[\"attributes\"].get(\"function_calls\")\n            if function_calls:\n                for call in function_calls:\n                    for key in self.global_imports.keys():\n                        if key.endswith(call):\n                            function_calls_relations.append(\n                                {\n                                    \"sourceId\": node[\"attributes\"][\"node_id\"],\n                                    \"targetId\": self.global_imports[key],\n                                    \"type\": \"CALLS\",\n                                }\n                            )\n                            print(\"added edge\", call)\n                del node[\"attributes\"][\"function_calls\"]\n\n        return function_calls_relations",
+                "node_id": "b953bee7-d80c-403d-a48b-c0f866ead4f2",
+                "path": "src.graph_construction.graph_builder.GraphConstructor._relate_function_calls",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "2e9a955a-893f-4f95-97bc-47e2cf884506",
+            "properties": {
+                "name": "build_graph",
+                "signature": "def build_graph(self, path, language):\n\n        # process every node to create the graph structure",
+                "text": "def build_graph(self, path, language):\n\n        # process every node to create the graph structure\n        nodes, relationships = self._scan_directory(path, language)\n        # relate imports between file nodes\n        relationships.extend(self._relate_imports(nodes))\n        # relate functions calls\n        relationships.extend(self._relate_function_calls(nodes))\n\n        self.graph_manager.save_graph(nodes, relationships)",
+                "node_id": "2e9a955a-893f-4f95-97bc-47e2cf884506",
+                "path": "src.graph_construction.graph_builder.GraphConstructor.build_graph",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "path": "src/utils/",
+                "name": "utils",
+                "node_id": "<function uuid4 at 0x7bcd86a9ac20>",
+                "label": "PACKAGE"
+            }
+        },
+        {
+            "id": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "path": "src/utils/__pycache__/",
+                "name": "__pycache__",
+                "node_id": "<function uuid4 at 0x7bcd86a9ac20>",
+                "label": "FOLDER"
+            }
+        },
+        {
+            "id": "4c73bc12-40fc-4c31-869b-6863e5759aa6",
+            "properties": {
+                "path": "src/utils/__pycache__/__init__.cpython-310.pyc",
+                "name": "__init__.cpython-310.pyc",
+                "node_id": "4c73bc12-40fc-4c31-869b-6863e5759aa6",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "835f07e8-62d7-45c8-905a-70ee2c974f0a",
+            "properties": {
+                "path": "src/utils/__pycache__/tree_parser.cpython-310.pyc",
+                "name": "tree_parser.cpython-310.pyc",
+                "node_id": "835f07e8-62d7-45c8-905a-70ee2c974f0a",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "2f7ad1de-f22e-4bd0-95da-59dd833cb85c",
+            "properties": {
+                "path": "src/utils/__pycache__/format_nodes.cpython-310.pyc",
+                "name": "format_nodes.cpython-310.pyc",
+                "node_id": "2f7ad1de-f22e-4bd0-95da-59dd833cb85c",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "96930471-36e0-4b87-a165-4160feae89a3",
+            "properties": {
+                "text": "LANGUAGE_EXTENSIONS = {\n    \"Python\": [\".py\", \".pyc\", \".pyd\", \".pyo\", \".pyw\", \".pyx\"],\n    \"C\": [\".c\", \".h\"],\n    \"C++\": [\".cpp\", \".cc\", \".cxx\", \".hpp\", \".h\", \".hxx\"],\n    \"Java\": [\".java\", \".jar\"],\n    \"JavaScript\": [\".js\"],\n    \"HTML\": [\".html\", \".htm\"],\n    \"CSS\": [\".css\"],\n    \"PHP\": [\".php\"],\n    \"Ruby\": [\".rb\"],\n    \"Swift\": [\".swift\"],\n    \"Kotlin\": [\".kt\", \".kts\"],\n    \"Go\": [\".go\"],\n    \"Rust\": [\".rs\"],\n    \"SQL\": [\".sql\"],\n    \"Shell\": [\".sh\"],\n    \"Perl\": [\".pl\"],\n    \"Scala\": [\".scala\"],\n    \"TypeScript\": [\".ts\"],\n    \"Lua\": [\".lua\"],\n    \"C#\": [\".cs\"],\n    \"Objective-C\": [\".m\"],\n    \"R\": [\".r\"],\n    \"Dart\": [\".dart\"],\n    \"Haskell\": [\".hs\"],\n    \"Julia\": [\".jl\"],\n    \"MATLAB\": [\".m\"],\n    \"Erlang\": [\".erl\"],\n    \"Groovy\": [\".groovy\"],\n    \"Clojure\": [\".clj\", \".cljs\"],\n    \"F#\": [\".fs\", \".fsx\"],\n    \"VBA\": [\".vba\"],\n    \"VBScript\": [\".vbs\"],\n    \"TeX\": [\".tex\"],\n    \"Assembly\": [\".asm\", \".s\"],\n    \"OCaml\": [\".ml\", \".mli\"],\n    \"ActionScript\": [\".as\"],\n    \"Pascal\": [\".pas\"],\n    \"Scheme\": [\".scm\", \".ss\"],\n    \"D\": [\".d\"],\n    \"Ada\": [\".ada\", \".adb\", \".ads\"],\n    \"Prolog\": [\".pl\", \".pro\"],\n    \"COBOL\": [\".cob\", \".cbl\"],\n    \"Forth\": [\".forth\", \".fth\", \".fs\"],\n    \"Verilog\": [\".v\", \".vh\", \".sv\", \".svh\"],\n    \"VHDL\": [\".vhd\", \".vhdl\"],\n    \"Lisp\": [\".lisp\", \".lsp\"],\n    \"Smalltalk\": [\".st\"],\n    \"Fortran\": [\".f\", \".for\", \".f90\", \".f95\"],\n    \"PowerShell\": [\".ps1\"],\n    \"Elixir\": [\".ex\", \".exs\"],\n    \"Ada\": [\".ada\", \".adb\", \".ads\"],\n    \"ABAP\": [\".abap\"],\n    \"Batch\": [\".bat\", \".cmd\"],\n    \"CMake\": [\".cmake\"],\n    \"CoffeeScript\": [\".coffee\"],\n    \"Crystal\": [\".cr\"],\n    \"Dylan\": [\".dylan\", \".dyl\", \".intr\", \".lid\"],\n    \"Eiffel\": [\".e\"],\n    \"Elm\": [\".elm\"],\n    \"Erlang\": [\".erl\", \".hrl\"],\n    \"F#\": [\".fs\", \".fsi\", \".fsx\", \".fsscript\"],\n    \"Forth\": [\".fth\", \".4th\", \".f\"],\n    \"Freemarker\": [\".ftl\"],\n    \"Fortran\": [\".f90\", \".f95\", \".f03\", \".f08\"],\n    \"GDScript\": [\".gd\"],\n    \"Gosu\": [\".gs\"],\n    \"GraphQL\": [\".graphql\", \".gql\"],\n    \"Groovy\": [\".groovy\", \".grt\", \".gtpl\", \".gvy\"],\n    \"HTML\": [\".html\", \".htm\", \".shtml\"],\n    \"IDL\": [\".idl\"],\n    \"Idris\": [\".idr\", \".lidr\"],\n    \"JSON\": [\".json\"],\n    \"Java\": [\".java\", \".properties\", \".jsp\", \".jspx\", \".wss\", \".wssx\"],\n    \"Kotlin\": [\".kt\", \".kts\", \".ktm\", \".ktt\"],\n    \"LLVM\": [\".ll\"],\n    \"Lasso\": [\".lasso\", \".lasso8\", \".las\", \".lasso9\", \".ldml\"],\n    \"MATLAB\": [\".m\"],\n    \"Makefile\": [\".mk\", \".mak\", \".make\", \".mkfile\"],\n    \"Markdown\": [\".md\", \".markdown\", \".mkd\"],\n    \"Max\": [\".maxpat\", \".maxhelp\", \".maxproj\", \".maxpresets\", \".mxt\"],\n    \"Nim\": [\".nim\", \".nimble\"],\n    \"Nix\": [\".nix\"],\n    \"OCaml\": [\".ml\", \".mli\", \".mll\", \".mly\"],\n    \"Objective-C\": [\".m\", \".h\"],\n    \"OpenEdge\": [\".p\"],\n    \"Pascal\": [\".pas\", \".p\"],\n    \"Perl\": [\".pl\", \".pm\", \".t\"],\n    \"PHP\": [\".php\", \".phpt\", \".php3\", \".php4\", \".php5\", \".phps\", \".phtml\"],\n    \"PLSQL\": [\".plsql\", \".pck\", \".pkb\", \".pks\"],\n    \"Pascal\": [\".pas\", \".pp\", \".dpr\", \".dfm\", \".lpr\", \".lpk\"],\n    \"Pawn\": [\".p\", \".pwn\"],\n    \"PureScript\": [\".purs\"],\n    \"Python\": [\".py\", \".pyw\", \".pyc\", \".pyd\"],\n    \"QML\": [\".qml\", \".qbs\", \".qbsqmldir\"],\n    \"Racket\": [\".rkt\", \".rktl\", \".scrbl\"],\n    \"Reason\": [\".re\"],\n    \"Red\": [\".red\", \".reds\"],\n    \"Regular\": [\".regex\", \".regexp\", \".rg\", \".rpl\", \".re\"],\n    \"Ring\": [\".ring\"],\n    \"Ruby\": [\".rb\", \".rhtml\", \".rjs\", \".gemspec\", \".podspec\", \".thor\", \".irbrc\", \".capfile\", \".gemrc\", \".ru\", \".prawn\", \".prawnx\"],\n    \"Rust\": [\".rs\", \".rlib\", \".toml\"],\n    \"SQL\": [\".sql\", \".ddl\", \".dml\", \".dcl\", \".dtl\", \".sqlj\"],\n    \"Scala\": [\".scala\", \".sc\"],\n    \"Shell\": [\".sh\", \".bash\", \".zsh\", \".fish\"],\n    \"Solidity\": [\".sol\"],\n    \"Standard\": [\".stg\"],\n    \"Stylus\": [\".styl\"],\n    \"SuperCollider\": [\".sc\", \".scd\"],\n    \"Swift\": [\".swift\"],\n    \"TeX\": [\".tex\"],\n    \"Toml\": [\".toml\"],\n    \"TypeScript\": [\".ts\", \".tsx\"]}",
+                "node_id": "96930471-36e0-4b87-a165-4160feae89a3",
+                "path": "src.utils.language_extensions",
+                "directory": "src/utils/",
+                "name": "language_extensions.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "properties": {
+                "text": "from llama_index.core.schema import BaseNode\nimport os\nimport uuid\n\n\ndef format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str]\n) -> dict:\n    # Code replaced for brevity. See node_id 184dbde1-f8ed-4d2c-804c-9c37c972b4ae\n\n\ndef format_class_node(node: BaseNode, scope: dict) -> dict:\n    # Code replaced for brevity. See node_id 20b911cc-146f-4d41-bedf-c09269d63c41\n\n\ndef format_file_node(node: BaseNode) -> dict:\n    # Code replaced for brevity. See node_id 0708e6c4-ef3b-467b-ba4f-8adc310b872a\n\n\ndef format_directory_node(path: str, package: bool) -> dict:\n    # Code replaced for brevity. See node_id fd3ec99c-ec81-480d-90db-ff2d80924b10",
+                "node_id": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+                "path": "src.utils.format_nodes",
+                "directory": "src/utils/",
+                "name": "format_nodes.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "184dbde1-f8ed-4d2c-804c-9c37c972b4ae",
+            "properties": {
+                "name": "format_function_node",
+                "signature": "def format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str]\n) -> dict:",
+                "text": "def format_function_node(\n    node: BaseNode, scope: dict, function_calls: list[str]\n) -> dict:\n    name = scope[\"name\"]\n    signature = scope[\"signature\"]\n\n    processed_node = {\n        \"type\": \"FUNCTION\",\n        \"attributes\": {\n            \"name\": name,\n            \"signature\": signature,\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n            \"function_calls\": function_calls,\n        },\n    }\n\n    return processed_node",
+                "node_id": "184dbde1-f8ed-4d2c-804c-9c37c972b4ae",
+                "function_calls": [],
+                "path": "src.utils.format_nodes.format_function_node",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "20b911cc-146f-4d41-bedf-c09269d63c41",
+            "properties": {
+                "name": "format_class_node",
+                "signature": "def format_class_node(node: BaseNode, scope: dict) -> dict:",
+                "text": "def format_class_node(node: BaseNode, scope: dict) -> dict:\n    name = scope[\"name\"]\n    signature = scope[\"signature\"]\n\n    processed_node = {\n        \"type\": \"CLASS\",\n        \"attributes\": {\n            \"name\": name,\n            \"signature\": signature,\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n        },\n    }\n\n    return processed_node",
+                "node_id": "20b911cc-146f-4d41-bedf-c09269d63c41",
+                "function_calls": [],
+                "path": "src.utils.format_nodes.format_class_node",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "0708e6c4-ef3b-467b-ba4f-8adc310b872a",
+            "properties": {
+                "name": "format_file_node",
+                "signature": "def format_file_node(node: BaseNode) -> dict:",
+                "text": "def format_file_node(node: BaseNode) -> dict:\n    processed_node = {\n        \"type\": \"FILE_ROOT\",\n        \"attributes\": {\n            \"text\": node.text,\n            \"node_id\": node.node_id,\n        },\n    }\n\n    return processed_node",
+                "node_id": "0708e6c4-ef3b-467b-ba4f-8adc310b872a",
+                "function_calls": [],
+                "path": "src.utils.format_nodes.format_file_node",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "fd3ec99c-ec81-480d-90db-ff2d80924b10",
+            "properties": {
+                "name": "format_directory_node",
+                "signature": "def format_directory_node(path: str, package: bool) -> dict:",
+                "text": "def format_directory_node(path: str, package: bool) -> dict:\n    processed_node = {\n        \"attributes\": {\n            \"path\": path + \"/\",\n            \"name\": os.path.basename(path),\n            \"node_id\": str(uuid.uuid4),\n        },\n        \"type\": \"PACKAGE\" if package else \"FOLDER\",\n    }\n\n    return processed_node",
+                "node_id": "fd3ec99c-ec81-480d-90db-ff2d80924b10",
+                "path": "src.utils.format_nodes.format_directory_node",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "0dac5822-d796-4329-a8a9-b1709e6292ed",
+            "properties": {
+                "path": "src/utils/__init__.py",
+                "name": "__init__.py",
+                "node_id": "0dac5822-d796-4329-a8a9-b1709e6292ed",
+                "label": "FILE"
+            }
+        },
+        {
+            "id": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "properties": {
+                "text": "import tree_sitter_languages\nimport re\n\n\ndef traverse_tree(tree):\n    # Code replaced for brevity. See node_id a6b7e614-3624-46db-88cc-b843a4b50b13\n\n\ndef count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.\n    # Code replaced for brevity. See node_id 133b1ac3-b8ae-42dc-86e5-eb1e26618d86\n\n\ndef parse_function_call(func_call_bytes: bytes, inclusive_scopes) -> tuple[str, int]:\n    # Regular expression to match a single function call.\n    # It captures the function name and its parameters.\n    # Code replaced for brevity. See node_id 25ba7cec-e8ac-41fb-b18a-d6485878905c\n\n\ndef get_function_calls(node) -> list[str]:\n    # Code replaced for brevity. See node_id 007ccd64-8315-4c16-b51b-b3357bae5991",
+                "node_id": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+                "path": "src.utils.tree_parser",
+                "directory": "src/utils/",
+                "name": "tree_parser.py",
+                "label": "FILE_ROOT"
+            }
+        },
+        {
+            "id": "a6b7e614-3624-46db-88cc-b843a4b50b13",
+            "properties": {
+                "name": "traverse_tree",
+                "signature": "def traverse_tree(tree):",
+                "text": "def traverse_tree(tree):\n    cursor = tree.walk()\n    visited_children = False\n    while True:\n        if not visited_children:\n            yield cursor.node\n            if not cursor.goto_first_child():\n                visited_children = True\n        elif cursor.goto_next_sibling():\n            visited_children = False\n        elif not cursor.goto_parent():\n            break",
+                "node_id": "a6b7e614-3624-46db-88cc-b843a4b50b13",
+                "path": "src.utils.tree_parser.traverse_tree",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "133b1ac3-b8ae-42dc-86e5-eb1e26618d86",
+            "properties": {
+                "name": "count_parameters",
+                "signature": "def count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.",
+                "text": "def count_parameters(params_str):\n    # Count parameters considering string literals and ignoring commas within them.\n    # This simplistic approach assumes balanced quotes and no escaped quotes within strings.\n    in_string = False\n    param_count = (\n        0 if not params_str else 1\n    )  # Start with 1 parameter if the string is not empty\n\n    for char in params_str:\n        if char == '\"':\n            in_string = not in_string  # Toggle state\n        elif char == \",\" and not in_string:\n            param_count += (\n                1  # Count commas outside of string literals as parameter separators\n            )\n\n    # Edge case for empty parameter list or only spaces\n    if param_count == 1 and not params_str.strip():\n        return 0\n\n    return param_count",
+                "node_id": "133b1ac3-b8ae-42dc-86e5-eb1e26618d86",
+                "path": "src.utils.tree_parser.count_parameters",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "25ba7cec-e8ac-41fb-b18a-d6485878905c",
+            "properties": {
+                "name": "parse_function_call",
+                "signature": "def parse_function_call(func_call_bytes: bytes, inclusive_scopes) -> tuple[str, int]:\n    # Regular expression to match a single function call.\n    # It captures the function name and its parameters.",
+                "text": "def parse_function_call(func_call_bytes: bytes, inclusive_scopes) -> tuple[str, int]:\n    # Regular expression to match a single function call.\n    # It captures the function name and its parameters.\n    pattern = re.compile(r\"^([\\w\\.]+)\\(([^)]*)\\)$\")\n\n    func_call_str = func_call_bytes.decode(\"utf-8\")\n    match = pattern.match(func_call_str)\n    if match:\n        func_name = match.group(1)  # The function name\n        params_str = match.group(2)  # The parameters as a single string\n\n        num_params = count_parameters(params_str)\n        if \"self.\" in func_name:\n            for parent in reversed(inclusive_scopes[:-1]):\n                if parent[\"type\"] == \"class_definition\":\n                    func_name = func_name.replace(\"self.\", parent[\"name\"] + \".\")\n                    break\n\n        return func_name, num_params\n    else:\n        return None, None",
+                "node_id": "25ba7cec-e8ac-41fb-b18a-d6485878905c",
+                "path": "src.utils.tree_parser.parse_function_call",
+                "label": "FUNCTION"
+            }
+        },
+        {
+            "id": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "properties": {
+                "name": "get_function_calls",
+                "signature": "def get_function_calls(node) -> list[str]:",
+                "text": "def get_function_calls(node) -> list[str]:\n    code_text = node.text\n\n    parser = tree_sitter_languages.get_parser(\"python\")\n    tree = parser.parse(bytes(code_text, \"utf-8\"))\n    node_names = map(lambda node: node, traverse_tree(tree))\n    function_calls = []\n    for tree_node in node_names:\n        if tree_node.type == \"call\":\n            function_calls.append(tree_node.text)\n\n    parsed_function_calls = map(\n        lambda x: parse_function_call(x, node.metadata[\"inclusive_scopes\"]),\n        function_calls,\n    )\n    \n\n    file_path = node.metadata[\"filepath\"].replace(\".py\", \"\").replace(\"/\", \".\")\n    filtered_calls = filter(lambda x: x[0] is not None, parsed_function_calls)\n    return list(map(lambda x: x[0], filtered_calls))",
+                "node_id": "007ccd64-8315-4c16-b51b-b3357bae5991",
+                "path": "src.utils.tree_parser.get_function_calls",
+                "label": "FUNCTION"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "id": "8c5d9fac-2ef5-4d57-95a1-b7a5c72b9d16",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "cd978c2f-61cf-4e3a-9d5c-9d8670cb65a5",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "ae5bee10-e8cf-47ba-8802-3c0f4808a159",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "05ad3398-bbf7-46c5-90b4-ee05fa6bb8d0",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "ae4e58ac-427a-423a-a695-b46e0160242f",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "29933745-3ae4-4f19-8e62-34e21ea17f6d",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "80794c03-ee74-4de9-8ff0-01e3bd5ef926",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "38d44017-3da6-4ee7-85bb-7afc22ab7732",
+            "start": "ec72a10b-9d05-4176-939f-1158ef993325",
+            "end": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+            "properties": {
+                "label": "CLASS_DEFINITION"
+            }
+        },
+        {
+            "id": "833c5dfe-a624-4d80-a4f5-7ef10e32c071",
+            "start": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+            "end": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "f2b4b1f9-abc8-4784-8681-ec05b1041c7d",
+            "start": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+            "end": "bdafdb72-d383-4840-bbe1-81295ab141f4",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "e8b556aa-d3bd-4495-aef2-5af65bfeabb4",
+            "start": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+            "end": "25d24e7b-8987-40c7-a122-c542a68ca798",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "f3fb0633-0945-4cbe-9331-d079be493411",
+            "start": "5cdf9329-e7c5-40a6-a056-367ebe2f071a",
+            "end": "cb9214d2-bb8b-4ac3-86c3-9a46945cd8f9",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "f6309e3e-10c9-4972-b808-6bcae6ce988c",
+            "start": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+            "end": "21fd40e0-3f25-462e-85d9-f30f80f87f77",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "5b4bc612-71d0-41ff-80e0-a93427199601",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "ec72a10b-9d05-4176-939f-1158ef993325",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "2a88674d-9c2c-4ff0-bca7-ad99041b3259",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "4432258c-3460-41e7-b057-81b517bfafbd",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "0640a05c-a590-4747-98e9-43021636e00e",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "7c626346-5d0a-4897-9686-ae7ed0f5bce1",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "7b1754d9-aceb-40d3-8e08-8cad8baf2609",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "88a42726-27de-4a4a-a8c9-1a3dec0482f3",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "28653984-1fc3-4cd7-8798-8a8690bba481",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "b8171d77-5880-4ff9-a380-aec269ca6887",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "392628d0-d7c2-46ef-8460-667910c875e6",
+            "start": "b0ce54f5-984b-425c-a572-7c88899e1757",
+            "end": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "properties": {
+                "label": "CLASS_DEFINITION"
+            }
+        },
+        {
+            "id": "afa32058-ffa0-40e3-a098-e2f6595c2d56",
+            "start": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "end": "2ab489d5-e138-4665-bfa4-951a1d70f90d",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "311c11fd-d49a-47e5-9809-9ec3b5663c09",
+            "start": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "end": "79cc7899-2fd4-4dd1-9081-408bb317b4f2",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "50af1b13-7c51-4e7b-b458-65bad8bd2c55",
+            "start": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "end": "deebb8cc-a4db-4487-bd4a-887b7c945cfe",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "430ca128-c0ab-43a0-8786-1bac5d425525",
+            "start": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "end": "53f460ed-23a4-4d94-94e6-8b0883777978",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "13af3bb1-e995-4e5e-b926-3e5017152873",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "b0ce54f5-984b-425c-a572-7c88899e1757",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "0977904a-e7fe-47f1-ab3f-b7b224c11d5f",
+            "start": "8d49d1ca-8679-4ee0-b68a-b8f26060ca76",
+            "end": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+            "properties": {
+                "label": "CLASS_DEFINITION"
+            }
+        },
+        {
+            "id": "f02fec7d-81cf-4305-8f3a-cb556e37fef8",
+            "start": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+            "end": "d7581add-3d25-4a2d-beb0-bd28b6e107ac",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "511617e6-bcf4-4659-a58b-d6d537caaa8e",
+            "start": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+            "end": "51d6ec41-2ad2-4e4a-b845-80b59b78840f",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "6f1b3de0-914d-4c78-ab25-24eb4fe9d748",
+            "start": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+            "end": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "00ba909c-756d-4afd-8d1a-2fc2f8deab63",
+            "start": "0bd13cc8-bc85-461f-8bcc-45e60b47d3cd",
+            "end": "35ee17d1-1777-450d-a3f3-3be5f7e78f01",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "d49e38d4-b16c-4582-afe5-1836f6f80958",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "8d49d1ca-8679-4ee0-b68a-b8f26060ca76",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "29cdaf03-27c5-410e-ac99-e32f5ae1d0c2",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "798bb122-dfa5-4966-9188-fcd8bd44e66a",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "5ec4934a-dde2-4d6c-a997-30662408aac2",
+            "start": "310c1f00-6251-43fc-8313-53716473b67d",
+            "end": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "properties": {
+                "label": "CLASS_DEFINITION"
+            }
+        },
+        {
+            "id": "186754a0-8b36-4eb2-8395-1ea5c81af62c",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "9be2457e-33cc-4516-a457-64284b5da8f6",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "e314a85e-a7e0-4bf9-ae72-d4fee2037f42",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "51a6ffbc-f597-4b3b-8b7b-28388832a2e7",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "49f30f05-491f-48eb-bca3-5ea2c16b325f",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "51512865-1340-45a0-b755-e083fe6ba398",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "eafe14f7-e3e4-4930-903c-683137b0b7bb",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "32918536-732d-42ab-8d75-63da0ed65542",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "892a8c87-5373-4b3c-b453-deccce03427a",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "25c86f90-33d9-4eb5-84f7-b400a9f6c908",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "0880dcb1-0006-4e97-b476-4b5038af4093",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "b953bee7-d80c-403d-a48b-c0f866ead4f2",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "0739f4bd-8e77-466a-a6bf-ad24b2f3ca07",
+            "start": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "end": "2e9a955a-893f-4f95-97bc-47e2cf884506",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "84f4f055-d2a1-41dd-85df-9714f2717bd6",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "310c1f00-6251-43fc-8313-53716473b67d",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "21c34132-3790-40de-910f-784c2183e8ae",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "a11eb3c7-b621-4dd8-adba-27438554bbe3",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "<function uuid4 at 0x7bcd86a9ac20>",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "d95ca3d9-f314-4b33-855b-995b69a771a3",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "4c73bc12-40fc-4c31-869b-6863e5759aa6",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "510ca420-2f8c-49de-a3a5-27c950666fb2",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "835f07e8-62d7-45c8-905a-70ee2c974f0a",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "98140f07-ee6a-481a-bb76-7a1fff34fa6e",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "2f7ad1de-f22e-4bd0-95da-59dd833cb85c",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "4c414d0f-e280-4719-9b0f-e93bc8485886",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "96930471-36e0-4b87-a165-4160feae89a3",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "b547034d-70ba-40a3-8723-49465a7efe24",
+            "start": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "end": "184dbde1-f8ed-4d2c-804c-9c37c972b4ae",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "ba450489-8bb8-4411-96b4-37e54002d5e9",
+            "start": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "end": "20b911cc-146f-4d41-bedf-c09269d63c41",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "7dc45ffa-cf76-4df8-90b9-3d7da7882609",
+            "start": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "end": "0708e6c4-ef3b-467b-ba4f-8adc310b872a",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "eef04ed2-46ea-4e53-a032-abbf1b12e629",
+            "start": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "end": "fd3ec99c-ec81-480d-90db-ff2d80924b10",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "39e72a11-3f1a-4409-9a4a-334b3d06f91c",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "874c3509-ef06-4b4e-883a-0fdd2aa3a984",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "0dac5822-d796-4329-a8a9-b1709e6292ed",
+            "properties": {
+                "label": "CONTAINS"
+            }
+        },
+        {
+            "id": "8ac4d381-a51a-4abb-b195-496d4a7efdae",
+            "start": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "end": "a6b7e614-3624-46db-88cc-b843a4b50b13",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "f52a293f-3054-4e3a-903a-2ef999ec784b",
+            "start": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "end": "133b1ac3-b8ae-42dc-86e5-eb1e26618d86",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "690cb657-4e65-4e1a-8a96-48b05aa69e20",
+            "start": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "end": "25ba7cec-e8ac-41fb-b18a-d6485878905c",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "f2eb0ce3-8d6d-4570-aad5-f021d5ec06a3",
+            "start": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "end": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "properties": {
+                "label": "FUNCTION_DEFINITION"
+            }
+        },
+        {
+            "id": "df06fcd7-6d84-47ad-9e7e-3180ee249e4e",
+            "start": "<function uuid4 at 0x7bcd86a9ac20>",
+            "end": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "properties": {
+                "label": "contains"
+            }
+        },
+        {
+            "id": "6f40c088-a740-463b-ad7a-6f2c1f95298c",
+            "start": "05ad3398-bbf7-46c5-90b4-ee05fa6bb8d0",
+            "end": "7fddbf41-0448-4c74-8aa2-356ca85d9ffd",
+            "properties": {
+                "label": "IMPORTS"
+            }
+        },
+        {
+            "id": "af809ca6-ea95-4749-b79d-9b23824fed23",
+            "start": "05ad3398-bbf7-46c5-90b4-ee05fa6bb8d0",
+            "end": "545ee15a-8a3f-4ea5-adfc-b4f3b22a0afe",
+            "properties": {
+                "label": "IMPORTS"
+            }
+        },
+        {
+            "id": "5d23a9ca-ff4b-4575-8fc9-c0a25e96b9bf",
+            "start": "310c1f00-6251-43fc-8313-53716473b67d",
+            "end": "09dac7ce-1969-4ed1-bd56-0ae174ab4d40",
+            "properties": {
+                "label": "IMPORTS"
+            }
+        },
+        {
+            "id": "6fbbc70f-a0b0-4c0a-8c83-b12122592547",
+            "start": "310c1f00-6251-43fc-8313-53716473b67d",
+            "end": "9fec5fa1-b61b-421e-9ba4-bcc7fddadd09",
+            "properties": {
+                "label": "IMPORTS"
+            }
+        },
+        {
+            "id": "6c0aa90f-103d-4ea3-bc48-b4ec4b941487",
+            "start": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+            "end": "21fd40e0-3f25-462e-85d9-f30f80f87f77",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "f6964bee-73a0-4df9-aee7-ee4a51de60b5",
+            "start": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+            "end": "cb9214d2-bb8b-4ac3-86c3-9a46945cd8f9",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "a9744298-67bd-4b66-a40c-32f2aea9fcd1",
+            "start": "a58e9003-9a61-4f36-bc62-e82608b90c02",
+            "end": "cb9214d2-bb8b-4ac3-86c3-9a46945cd8f9",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "a9dad130-11a8-475e-a5a6-c598eab100c0",
+            "start": "21fd40e0-3f25-462e-85d9-f30f80f87f77",
+            "end": "25d24e7b-8987-40c7-a122-c542a68ca798",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "ce177514-4893-47af-91d6-9c1f667759ec",
+            "start": "51d6ec41-2ad2-4e4a-b845-80b59b78840f",
+            "end": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "455f892e-6652-46dc-a73a-aa3632d6f48e",
+            "start": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "end": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "58e8b965-5b95-4812-aaa8-07fa5707251b",
+            "start": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "end": "184dbde1-f8ed-4d2c-804c-9c37c972b4ae",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "58f32118-5159-4222-8e52-bf2f9d83fbca",
+            "start": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "end": "20b911cc-146f-4d41-bedf-c09269d63c41",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "71275dd0-e174-4704-a0d9-35ec85bd0877",
+            "start": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "end": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "b0f4c4ed-6cfb-464b-bd01-57b4f374c91a",
+            "start": "8707e696-1a3c-4c89-8e98-6058b247aa7a",
+            "end": "0708e6c4-ef3b-467b-ba4f-8adc310b872a",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "332e6f12-a222-479a-9be6-d503c24d5404",
+            "start": "51a6ffbc-f597-4b3b-8b7b-28388832a2e7",
+            "end": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "52aa5134-17de-478d-b220-ce37ee6c384f",
+            "start": "51a6ffbc-f597-4b3b-8b7b-28388832a2e7",
+            "end": "25c86f90-33d9-4eb5-84f7-b400a9f6c908",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "3bade1d9-68a4-4e55-b707-f465cd564e17",
+            "start": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "end": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "cd5310c3-418e-4f29-b95d-f420b106c009",
+            "start": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "end": "184dbde1-f8ed-4d2c-804c-9c37c972b4ae",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "61aa0440-7531-4f28-b2c1-8e7c01025df2",
+            "start": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "end": "20b911cc-146f-4d41-bedf-c09269d63c41",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "2355b9f3-e236-4618-b058-85b26c1d4fe0",
+            "start": "8f9fc127-2745-4eef-9247-77d0f3c12d74",
+            "end": "0708e6c4-ef3b-467b-ba4f-8adc310b872a",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "24394f3d-c3aa-4afe-8fb3-026b9ae14252",
+            "start": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "end": "fd3ec99c-ec81-480d-90db-ff2d80924b10",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "010397da-75e3-4783-a43b-a04ea4f8db35",
+            "start": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "end": "51a6ffbc-f597-4b3b-8b7b-28388832a2e7",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "d4629f27-20db-4676-acab-740db297791f",
+            "start": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "end": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "a0ed1a52-74cc-49ba-aa3e-a6f16e205ff9",
+            "start": "2e9a955a-893f-4f95-97bc-47e2cf884506",
+            "end": "dfc4867d-9a69-4d81-af88-263767ee88a7",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "bc545f45-2d12-4450-b078-0049540089ca",
+            "start": "2e9a955a-893f-4f95-97bc-47e2cf884506",
+            "end": "32918536-732d-42ab-8d75-63da0ed65542",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "7ab5ed7b-e9f5-43e0-a1cb-61ff2010d146",
+            "start": "2e9a955a-893f-4f95-97bc-47e2cf884506",
+            "end": "b953bee7-d80c-403d-a48b-c0f866ead4f2",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "0d3d86f8-577a-4fd6-8921-b18508f68ae8",
+            "start": "25ba7cec-e8ac-41fb-b18a-d6485878905c",
+            "end": "133b1ac3-b8ae-42dc-86e5-eb1e26618d86",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "97a1bfbb-6f15-4c16-897c-7e3097db4d20",
+            "start": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "end": "a6b7e614-3624-46db-88cc-b843a4b50b13",
+            "properties": {
+                "label": "CALLS"
+            }
+        },
+        {
+            "id": "4778288f-95ba-4f09-83f9-965fc63b2154",
+            "start": "007ccd64-8315-4c16-b51b-b3357bae5991",
+            "end": "25ba7cec-e8ac-41fb-b18a-d6485878905c",
+            "properties": {
+                "label": "CALLS"
+            }
+        }
+    ]
+}
