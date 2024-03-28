@@ -1,12 +1,11 @@
 import os
 import uuid
-from blar_graph.graph_construction.neo4j_manager import Neo4jManager
-from blar_graph.graph_construction.graph_file_parser import GraphFileParser
-from blar_graph.utils import format_nodes
+from graph_construction.graph_file_parser import GraphFileParser
+from graph_construction.utils import format_nodes
 
 
 class GraphConstructor:
-    def __init__(self, graph_manager: Neo4jManager):
+    def __init__(self, graph_manager):
         self.graph_manager = graph_manager
         self.directories_map = {}
         self.visited_nodes = {}
@@ -188,5 +187,4 @@ class GraphConstructor:
         # relate functions calls
         relationships.extend(self._relate_function_calls(nodes, imports))
 
-        self.graph_manager.create_nodes(nodes)
-        self.graph_manager.create_edges(relationships)
+        self.graph_manager.save_graph(nodes,relationships)
