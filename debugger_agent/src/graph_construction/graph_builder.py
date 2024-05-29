@@ -8,6 +8,7 @@ from llama_index.core.text_splitter import CodeSplitter
 from llama_index.packs.code_hierarchy import CodeHierarchyNodeParser
 from utils import format_nodes, tree_parser
 
+
 class GraphConstructor:
     RELATIONS_TYPES_MAP = {
         "function_definition": "FUNCTION_DEFINITION",
@@ -44,7 +45,9 @@ class GraphConstructor:
         node_list = []
         edges_list = []
         for node in split_nodes:
-            processed_node, relationships = self.__process_node__(node, no_extension_path)
+            processed_node, relationships = self.__process_node__(
+                node, no_extension_path
+            )
             node_list.append(processed_node)
             edges_list.extend(relationships)
         imports, _ = self._get_imports(path)
@@ -95,11 +98,13 @@ class GraphConstructor:
                     )
             elif relation[0] == NodeRelationship.PARENT:
                 if relation[1]:
-                    parent_path = self.visited_nodes.get(relation[1].node_id, no_extension_path).replace("/", ".")
+                    parent_path = self.visited_nodes.get(
+                        relation[1].node_id, no_extension_path
+                    ).replace("/", ".")
                     node_path = f"{parent_path}.{processed_node['attributes']['name']}"
                 else:
                     node_path = no_extension_path.replace("/", ".")
-        processed_node['attributes']["path"] = node_path
+        processed_node["attributes"]["path"] = node_path
         self.global_imports[node_path] = node.node_id
         self.visited_nodes[node.node_id] = node_path
         return processed_node, relationships
@@ -108,10 +113,14 @@ class GraphConstructor:
         self,
         path,
         language="python",
-        nodes=[],
-        relationships=[],
+        nodes=None,
+        relationships=None,
         parent_id=None,
     ):
+        if nodes is None:
+            nodes = []
+        if relationships is None:
+            relationships = []
         if self.root is None:
             self.root = path
         package = False
@@ -199,7 +208,6 @@ class GraphConstructor:
 
         return import_edges
 
-
     def _get_imports(self, path):
         parser = tree_sitter_languages.get_parser("python")
         with open(path, "r") as file:
@@ -250,7 +258,6 @@ class GraphConstructor:
         return function_calls_relations
 
     def build_graph(self, path, language):
-
         # process every node to create the graph structure
         nodes, relationships = self._scan_directory(path, language)
         # relate imports between file nodes
