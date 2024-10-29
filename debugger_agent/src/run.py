@@ -8,5 +8,5 @@ graph_constructor.build_graph("src", "python")
 print("finalizing test 29/10")
 
 i = 0
-i += 2
+i += 3
 print(i)
