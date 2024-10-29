@@ -1,2 +1,2 @@
 
-this should create a conflict
+ should create a new conflict
