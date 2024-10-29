@@ -7,7 +7,7 @@ class Test:
         hello2()
         self.hello2()
         a = 1
-        print("Hello, world!")
+        print("Hello, world! Blar")
 
     def factorial(self, n):
         result = 1
@@ -23,6 +23,9 @@ class Test:
 
     def hello2(self):
         print("hc")
+
+    def goodbye(self):
+        print("bye")
 
 
 test = Test()
