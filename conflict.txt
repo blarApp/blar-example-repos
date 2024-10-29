@@ -1,3 +1,4 @@
 
- should create a new conflict
+this should create a conflict
 
+no conflict
