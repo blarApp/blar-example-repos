@@ -1,4 +1,4 @@
 
-this will create a conflict
+this should create a conflict
 
 no conflict
