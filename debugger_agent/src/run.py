@@ -7,4 +7,5 @@ graph_constructor.build_graph("src", "python")
 
 print("running test 28/10")
 for i in range(1, 10):
+    print("example")
     print(i)
