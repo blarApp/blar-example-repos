@@ -12,5 +12,5 @@ def calculate_average(numbers):
     for number in numbers:
         sum_of_numbers, number = add(sum_of_numbers, number)
 
-    average = divide(sum_of_numbers, len(numbers))
+    average, divider = divide(sum_of_numbers, len(numbers))
     return average
