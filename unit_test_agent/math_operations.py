@@ -24,4 +24,6 @@ def divide(x, y):
     """
     if y == 0:
         raise ValueError("Cannot divide by zero.")
+    if y == 1:
+        raise ValueError("Cannot divide by one.")
     return x / y
