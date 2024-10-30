@@ -2,4 +2,4 @@
 this will create a conflict
 
 no conflict
--
+--
