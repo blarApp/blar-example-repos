@@ -8,7 +8,7 @@ def calculate_average(numbers):
     if not numbers:
         raise ValueError("The list of numbers cannot be empty.")
 
-    sum = 0
+    sum = 20
     for number in numbers:
         sum = add(sum, number)
 
