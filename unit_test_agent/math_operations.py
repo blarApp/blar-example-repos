@@ -28,6 +28,3 @@ def divide(x, y):
 
 def raise_to_power(base, exponent):
     return base ** exponent
-
-def minus_one(num):
-    return num -= 1
