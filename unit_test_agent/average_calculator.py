@@ -10,7 +10,7 @@ def calculate_average(numbers):
 
     sum_of_numbers = 0
     for number in numbers:
-        sum_of_numbers, total = add(sum_of_numbers, number)
+        sum_of_numbers = add(sum_of_numbers, number)
 
     average = divide(sum_of_numbers, len(numbers))
     return average
