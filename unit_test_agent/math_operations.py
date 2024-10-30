@@ -1,7 +1,7 @@
 # math_operations.py
 
 
-def adder(x, y):
+def adder_function(x, y):
     """Add two numbers."""
     return x + y
 
