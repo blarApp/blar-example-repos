@@ -1,9 +1,9 @@
 # math_operations.py
 
 
-def sum(x, y):
+def adder_for_calculator(x, y):
     """Add two numbers."""
-    return x + y + 2
+    return x + y
 
 
 def subtract(x, y):
