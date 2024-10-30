@@ -5,8 +5,8 @@ graph_manager = JSONManager()
 graph_constructor = GraphConstructor(graph_manager)
 graph_constructor.build_graph("src", "python")
 
-print("finalizing test 29/10")
+print("hello world!")
 
-i = 0
+i = 1
 i += 4
 print(i)
