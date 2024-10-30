@@ -1,7 +1,7 @@
 # math_operations.py
 
 
-def add(x, y):
+def adds(x, y):
     """Add two numbers."""
     return x + y
 
@@ -28,3 +28,6 @@ def divide(x, y):
 
 def raise_to_power(base, exponent):
     return base ** exponent
+
+def minus_one(number):
+    return number -= 1
