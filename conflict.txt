@@ -1,5 +1,1 @@
-yes
-this will create a conflict
 
-no conflict
-i want to force a conflict
