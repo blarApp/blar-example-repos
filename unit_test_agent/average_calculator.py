@@ -8,7 +8,7 @@ def calculate_average(numbers):
     if not numbers:
         raise ValueError("The list of numbers cannot be empty.")
 
-    sum_of_numbers = 3
+    sum_of_numbers = 0
     for number in numbers:
         sum_of_numbers = add(sum_of_numbers, number)
 
