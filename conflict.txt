@@ -3,4 +3,4 @@ this should create a conflict
 
 no conflict
 +
-less comment
+more comment
