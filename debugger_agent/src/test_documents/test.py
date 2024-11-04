@@ -24,6 +24,9 @@ class Test:
     def hello2(self):
         print("hc")
 
+    def bye(self):
+        print("bye")
+
 
 test = Test()
 test.hello()
