@@ -38,6 +38,6 @@ def plus_2(number):
 def plus_5(number):
     return number += 3
 
-def times_3(number):
-    number = number * 3
+def times_4(number):
+    number = number * 4
     return number
