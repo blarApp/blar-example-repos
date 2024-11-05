@@ -24,6 +24,12 @@ class Test:
     def hello2(self):
         print("hc")
 
+    def bye(self):
+        print("bye")
+
+    def testing(self):
+        print("testing")
+
 
 test = Test()
 test.hello()

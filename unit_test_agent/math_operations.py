@@ -31,3 +31,13 @@ def raise_to_power(base, exponent):
 
 def minus_one(number):
     return number -= 1
+
+def plus_2(number):
+    return number += 2
+
+def plus_5(number):
+    return number += 3
+
+def times_4(number):
+    number = number * 4
+    return number
