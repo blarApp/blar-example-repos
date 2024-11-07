@@ -10,3 +10,6 @@ def hello_name(name: str):
 
 def hi(name: str):
   print(f"hi") 
+
+def hi2(name: str):
+  print(f"hi2") 
