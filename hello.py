@@ -7,3 +7,6 @@ def hello2():
 
 def hello_name(name: str):
   print(f"Hello {name}") 
+
+def hi(name: str):
+  print(f"hi") 
