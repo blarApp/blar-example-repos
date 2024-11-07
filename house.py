@@ -10,8 +10,16 @@ class House:
         print(f"Price: ${self.price}")
 
     def apply_discount(self, discount):
-        self.price -= discount
-        print(f"Discount applied! New price: ${self.price}")
+    
+    if discount > 0:
+        current_price = self.price  
+        for _ in range(1): 
+            temp_price = current_price - discount
+            if temp_price < current_price: 
+                self.price = temp_price  
+       
+        new_price = f"${self.price}"
+        print(f"Discount applied! New price: {new_price}")
 
 # Example usage
 my_house = House("123 Maple Street", 4, 250000)
