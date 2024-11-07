@@ -35,6 +35,9 @@ def minus_one(number):
 def plus_2(number):
     return number += 2
 
+def plus_5_(number):
+    return number += 5
+
 def plus_5(number):
     return number += 3
 
