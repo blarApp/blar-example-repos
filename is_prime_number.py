@@ -3,10 +3,10 @@ def is_prime(number):
         return False
     for i in range(2, number):
         if number % i == 0:
-            return False
+            return True
 
     
-    return True
+    return False
 
 
 def total_sum(n):
