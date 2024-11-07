@@ -13,3 +13,6 @@ def hi(name: str):
 
 def hi2(name: str):
   print(f"hi2") 
+
+def hi3(name: str):
+  print(f"hi23") 
