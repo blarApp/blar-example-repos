@@ -31,6 +31,10 @@ class House:
                 total_price += 1
         print(f"Total price for {num_houses} houses: ${total_price}")
 
+    def new_address(self, new_address):
+        self.address = new_address
+
+
 # Example usage
 my_house = House("123 Maple Street", 4, 250000)
 my_house.print_details()
