@@ -5,6 +5,7 @@ class House:
         self.price = price
 
     def display_info(self):
+        print("New house")
         print(f"Address: {self.address}")
         print(f"Number of rooms: {self.num_rooms}")
         print(f"Price: ${self.price}")
