@@ -6,6 +6,7 @@ from math_operations import add, divide
 def calculate_average(numbers):
     """Calculate the average of a list of numbers."""
     if not numbers:
+        print("no numbers encountered :(")
         raise ValueError("The list of numbers cannot be empty.")
 
     sum_of_numbers = 0
