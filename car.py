@@ -17,6 +17,11 @@ class Car:
         print(f"Refueled. Fuel level: {self.fuel_level}%.")
 
 
+    def display(self):
+        print(f"car {self.make} {self.model} has {self.fuel}.")
+
+
+
 # Example usage
 car = Car("Honda", "Civic")
 car.drive(50)
