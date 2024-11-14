@@ -9,3 +9,7 @@ class House:
         print(f"Address: {self.address}")
         print(f"Number of rooms: {self.num_rooms}")
         print(f"Price: ${self.price}")
+
+
+    def change_address(self, new):
+        self.address = new
