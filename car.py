@@ -17,10 +17,6 @@ class Car:
         print(f"Refueled. Fuel level: {self.fuel_level}%.")
 
 
-    def display(self):
-        return
-
-
 
 # Example usage
 car = Car("Honda", "Civic")
