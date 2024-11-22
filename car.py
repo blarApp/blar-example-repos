@@ -18,7 +18,7 @@ class Car:
 
 
     def display(self):
-        print(f"car {self.make} {self.model} has {self.fuel}.")
+        return
 
 
 
