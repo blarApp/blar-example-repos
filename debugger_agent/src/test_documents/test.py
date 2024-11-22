@@ -15,11 +15,10 @@ class Test:
             result *= i
         return result
 
-    def fibonacci(self, n):
-        a, b = 0, 1
-        while a < n:
-            print(a, end=" ")
-            a, b = b, a + b
+    def fibonacci(n):
+        if n <= 1:
+            return n
+        return fibonacci(n - 1) + fibonacci(n - 2)
 
     def hello2(self):
         print("hc")
