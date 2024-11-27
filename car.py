@@ -16,6 +16,8 @@ class Car:
         self.fuel_level = min(self.fuel_level + amount, 100)
         print(f"Refueled. Fuel level: {self.fuel_level}%.")
 
+    def display(self):
+        print(f"this is car {self.model}")
 
 
 # Example usage
