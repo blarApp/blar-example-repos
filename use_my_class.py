@@ -10,9 +10,9 @@ def main():
     person3 = Person("Charlie", 35)
 
     # Use the introduce method for each person
-    print(person1.introduce())
-    print(person2.introduce())
-    print(person3.introduce())
+    person1.introduce()
+    person2.introduce()
+    person3.introduce()
 
     # Celebrate birthdays for each person
     print(person1.celebrate_birthday())
