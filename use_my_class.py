@@ -1,17 +1,23 @@
-from my_class import MyClass
+from person import Person
 
 def main():
     """
-    Main function to demonstrate the usage of MyClass.
+    Main function to demonstrate the usage of the Person class.
     """
-    # Create an instance of MyClass
-    instance = MyClass("Alice")
+    # Create three instances of the Person class
+    person1 = Person("Alice", 25)
+    person2 = Person("Bob", 30)
+    person3 = Person("Charlie", 35)
 
-    # Use the greet method
-    message = instance.greet()
+    # Use the introduce method for each person
+    print(person1.introduce())
+    print(person2.introduce())
+    print(person3.introduce())
 
-    # Print the greeting message
-    print(message)
+    # Celebrate birthdays for each person
+    print(person1.celebrate_birthday())
+    print(person2.celebrate_birthday())
+    print(person3.celebrate_birthday())
 
 if __name__ == "__main__":
     main()
