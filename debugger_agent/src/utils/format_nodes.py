@@ -1,4 +1,5 @@
 from llama_index.core.schema import BaseNode
+from person import Person
 import os
 import uuid
 
@@ -51,6 +52,8 @@ def format_file_node(node: BaseNode) -> dict:
 
     return processed_node
 
+person2 = Person("Bob", 30)
+print(person2.introduce())
 
 def format_directory_node(path: str, package: bool) -> dict:
     processed_node = {
