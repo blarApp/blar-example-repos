@@ -10,3 +10,7 @@ class Person:
     def celebrate_birthday(self):
         self.age += 1
         return f"Happy Birthday, {self.name}! You are now {self.age} years old."
+
+
+    def run(self):
+        print(f"{self.name} is running}")
