@@ -1,11 +1,12 @@
 class MyClass:
-    def __init__(self, name):
+    def __init__(self, name, age):
         """
         Initialize the MyClass instance with a name.
         
         :param name: The name of the instance
         """
         self.name = name
+        self.age = age
 
     def greet(self):
         """
