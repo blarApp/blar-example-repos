@@ -1,5 +1,4 @@
-from person import Person
+from book import Book
 
-person = Person("Alice", 30)
-person1 = Person("Bob", 25)
-person.greet()
+new_book = Book("title", "author", 100)
+new_book.summary
