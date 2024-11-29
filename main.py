@@ -1,4 +1,5 @@
+from function import function_one
 from person import Person
 
-person = Person("Alice", 30)
-person.greet()
+person = Person(name="Bob", age=20)
+function_one(person)
