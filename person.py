@@ -6,3 +6,6 @@ class Person:
 
     def greet(self):
         print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+    def run(self):
+        print(f"{self.name} is running")
