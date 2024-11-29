@@ -1,4 +1,5 @@
-from book import Book
+from function import function_one
+from person import Person
 
-new_book = Book("title", "author", 100)
-new_book.summary
+person = Person(name="Bob", age=20)
+function_one(person)
