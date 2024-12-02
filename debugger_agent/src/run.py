@@ -7,5 +7,8 @@ graph_constructor.build_graph("src", "python")
 
 
 from person import Person
+from book import Book
 
 person3 = Person("Alice", 30)
+book = Book("Alice", "title", 30)
+book.summarize()
