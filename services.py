@@ -2,6 +2,7 @@
 
 from models import Task
 from datetime import datetime, timedelta
+from utilities import format_task_details
 
 class TaskService:
     def __init__(self):
@@ -19,3 +20,9 @@ class TaskService:
         task = next((task for task in self.tasks if task.task_id == task_id), None)
         if task:
             task.mark_complete()
+
+    def get_formatted_task_details(self, task_id):
+        task = next((task for task in self.tasks if task.task_id == task_id), None)
+        if task:
+            return format_task_details(task)
+        return "Task not found"
