@@ -19,6 +19,10 @@ class Car:
     def display(self):
         print(f"this is car {self.model}")
 
+    def display(self):
+        return
+
+
 
 # Example usage
 car = Car("Honda", "Civic")
