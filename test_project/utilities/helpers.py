@@ -1,3 +1,3 @@
-def greet(name: str) -> str:
-    """Return a greeting string."""
-    return f"Hello, {name}!"
+def say_hello(name: str) -> str:
+    """Return a greeting string using a different function name."""
+    return f"Hi there, {name}!"
