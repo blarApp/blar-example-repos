@@ -1,6 +1,6 @@
 class Book:
     def __init__(self, title, author, pages):
-        self.title = title
+        self.title = titl
         self.author = author
         self.pages = pages
 
@@ -8,5 +8,5 @@ class Book:
         print(f"'{self.title}' by {self.author}, {self.pages} pages long.")
 
     def is_long_book(self):
-        return self.pages > 300
+        return self.pages > 400
 
