@@ -6,6 +6,5 @@ def to_lowercase(text: str) -> str:
     """Convert a string to lowercase."""
     return text.lower()
 
-def reverse_string(text: str) -> str:
-    """Reverse the given string."""
+def reverse_string(text: str, count: int) -> str:
     return text[::-1]
