@@ -6,3 +6,6 @@ new_book.summary()
 
 old_book = Book("alice", "testing", 200)
 old_book.summary()
+
+book = Book("alice", "testing", 200)
+book.summary()
