@@ -9,6 +9,7 @@ def display_task(task):
     print(f"Due Date: {task.due_date.strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Status: {task.status}")
     print("-" * 40)
+    print("-" * 40)
 
 def display_all_tasks(tasks):
     if not tasks:
