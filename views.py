@@ -10,6 +10,7 @@ def display_task(task):
     print(f"Status: {task.status}")
     print("-" * 40)
     print("-" * 40)
+    print("-" * 40)
 
 def display_all_tasks(tasks):
     if not tasks:
