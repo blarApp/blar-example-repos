@@ -21,8 +21,11 @@ def main():
     print("Add: ", add(10, 5))
     print("Subtract: ", subtract(10, 5))
     print("Multiply: ", multiply(10, 5))
-    print("Divide: ", divide(10, 5))
-
+    result = divide(10, 5)
+    print("Divide: ", result)
+    doubled = result * 2
+    print("Double: ", doubled)
+    
     # String utilities
     original_text = "Hello World"
     print("Uppercase: ", to_uppercase(original_text))
