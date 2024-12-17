@@ -20,6 +20,7 @@ def display_all_tasks(tasks):
 def display_due_tasks(due_tasks):
     if not due_tasks:
         print("No due tasks.")
+        print("yes")
     else:
         print("Due Tasks:")
         for task in due_tasks:
