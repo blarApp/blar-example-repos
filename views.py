@@ -12,6 +12,7 @@ def display_task(task):
     print("-" * 40)
     print("-" * 40)
     print("-" * 40)
+    print("-" * 40
 
 
 def display_all_tasks(tasks):
