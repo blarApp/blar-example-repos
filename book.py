@@ -8,5 +8,5 @@ class Book:
         print(f"'{self.title}' by {self.author}, {self.pages} pages long.")
 
     def is_long_book(self):
-        return self.pages > 400
+        return self.pages 400
 
