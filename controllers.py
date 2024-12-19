@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 def manage_tasks():
     task_service = TaskService()
-
+    print(my_var)
     # Add tasks
     task_service.add_task("Finish homework", "Complete math homework", datetime.now() + timedelta(days=1))
     task_service.add_task("Grocery shopping", "Buy groceries", datetime.now() + timedelta(days=2))
