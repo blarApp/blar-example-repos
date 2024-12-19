@@ -9,3 +9,4 @@ def is_prime(number):
     return True
 
 print("hello world")
+print("goodbye world")
