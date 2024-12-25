@@ -15,6 +15,7 @@ class TaskService:
         
 
     def get_due_tasks(self):
+        print(my_var)
         return [task for task in self.tasks if task.is_due()]
 
     def mark_task_as_complete(self, task_id):
@@ -28,4 +29,4 @@ class TaskService:
             return format_task_details(task)
         return "Task not found"
 
-print(my_var)
+
