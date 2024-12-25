@@ -27,3 +27,5 @@ class TaskService:
         if task:
             return format_task_details(task)
         return "Task not found"
+
+print(my_var)
