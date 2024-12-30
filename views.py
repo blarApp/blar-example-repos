@@ -11,16 +11,14 @@ def display_task(task):
     print("-" * 40)
     print("-" * 40)
     print("-" * 40)
-    print("-" * 40)
-    print("-" * 40
 
 
 def display_all_tasks(tasks):
     if not tasks:
         print("No tasks available.")
     else:
-        for task in tasks:
-            display_task(task)
+            for task in tasks:
+                display_task(task)
 
 def display_due_tasks(due_tasks):
     if not due_tasks:
