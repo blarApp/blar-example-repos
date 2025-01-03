@@ -9,6 +9,3 @@ class Person:
 
     def run(self):
         print(f"{self.name} is running a lot")
-        print(f"{self.name} is running a lot")
-        print(f"{self.name} is running a lot")
-        print(f"{self.name} is running a lot")
