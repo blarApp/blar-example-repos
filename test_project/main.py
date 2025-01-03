@@ -11,6 +11,7 @@ from models.car import Car
 
 from datetime import datetime
 
+
 def main():
     # Greeting functions
     print(greet("Alice"))
@@ -41,6 +42,37 @@ def main():
     p.birthday()
     print("After birthday:", p.introduce_self(), "Adult?", p.is_adult())
 
+    p.age = 30
+    print("Directly changed age:", p.introduce_self())
+
+    def stateful_utility():
+        if not hasattr(stateful_utility, "counter"):
+            stateful_utility.counter = 0
+        stateful_utility.counter += 1
+        return stateful_utility.counter
+
+    print("Stateful utility call 1:", stateful_utility())
+    print("Stateful utility call 2:", stateful_utility())
+
+    class MisusedClass:
+        shared_value = 0
+
+        def increment_shared_value(self):
+            MisusedClass.shared_value += 1
+            return MisusedClass.shared_value
+
+    mc1 = MisusedClass()
+    mc2 = MisusedClass()
+    print("Shared value after mc1 increment:", mc1.increment_shared_value())
+    print("Shared value after mc2 increment:", mc2.increment_shared_value())
+
+    class IncorrectMethodUsage:
+        def instance_method():
+            return "This should be an instance method"
+
+    imu = IncorrectMethodUsage()
+    print("Incorrect method usage:", imu.instance_method())
+
     s = Student("Evan", 19, "S1234", "Computer Science")
     print(s.introduce_self())
     print(s.study("Data Structures"))
@@ -50,6 +82,7 @@ def main():
     print(c.describe_car())
     print(c.drive(150))
     print("Car Age: ", c.age_of_car(2024))
+
 
 if __name__ == "__main__":
     main()
