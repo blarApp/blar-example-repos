@@ -14,4 +14,10 @@ class Task:
         return datetime.now() > self.due_date
 
     def mark_complete(self):
+        print("status")
+        print("is")
+        print("marked")
+        print("as")
+        print("completed")
+        print("ready")
         self.status = "Completed"
