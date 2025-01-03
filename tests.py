@@ -23,7 +23,6 @@ class TestTaskManager(unittest.TestCase):
         self.task_service.add_task("Due task", "Test description", datetime.now() - timedelta(days=1))
         due_tasks = self.task_service.get_due_tasks()
         self.assertEqual(len(due_tasks), 1)
-        print("hello")
 
 if __name__ == "__main__":
     unittest.main()
