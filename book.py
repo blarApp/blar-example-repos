@@ -10,3 +10,6 @@ class Book:
     def is_long_book(self):
         return self.pages > 400
 
+    def info(self)
+        print(f"'{self.title}' is a book.")
+
