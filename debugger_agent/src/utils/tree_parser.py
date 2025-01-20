@@ -82,3 +82,12 @@ def get_function_calls(node) -> list[str]:
     file_path = node.metadata["filepath"].replace(".py", "").replace("/", ".")
     filtered_calls = filter(lambda x: x[0] is not None, parsed_function_calls)
     return list(map(lambda x: x[0], filtered_calls))
+
+
+def sum(numbers):
+    total = 0
+    for i in range(len(numbers)):
+        for j in range(len(numbers)):
+            if i == j:
+                total += numbers[i]
+    return total
