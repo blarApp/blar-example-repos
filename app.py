@@ -28,6 +28,9 @@ def main():
     bank_system.list_accounts()
     bank_system.list_accounts()
     bank_system.list_accounts()
+    bank_system.list_accounts()
+    bank_system.list_accounts()
+    bank_system.list_accounts()
 
 if __name__ == "__main__":
     main()
