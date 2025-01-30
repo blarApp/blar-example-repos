@@ -10,3 +10,4 @@ old_book.summary()
 
 book = Book("alice", "testing", 200)
 book.summary()
+book.is_long_book()
