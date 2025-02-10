@@ -12,4 +12,3 @@ class Book:
 
     def info(self):
         print(f"'{self.title}' is a book.")
-
