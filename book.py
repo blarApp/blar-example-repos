@@ -4,6 +4,7 @@ class Book:
         self.author = author
         self.pages = pages
         self.chapters = []
+        self.pages_read = 0
 
     class Chapter:
         def __init__(self, title, number, length):
