@@ -36,8 +36,3 @@ class JSONManager:
             }
         }
         return formatted_edge
-
-
-from person import Person
-
-person = Person("Alice", 30)
